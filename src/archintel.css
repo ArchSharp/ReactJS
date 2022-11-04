@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
+
+:root{
+  --navWidth: 100vw;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;  
+}
+body{
+  overflow-x: hidden;
+}
+/*TopNavigationBar*/
+.nav {
+  display: flex;
+  text-align: center;
+  width: fit-content;
+  height: 50px;
+  position: absolute;
+  right: 15px;
+  padding-top: 7px;  
+}
+.navbar{
+  display: flex;
+  background-color: darkmagenta;
+  height: 50px;
+  color: white;
+  width: var(--navWidth);
+}
+.companyName{
+  display: flex;
+  width: fit-content;
+  margin-left: 20px;
+}
+.companyName span{
+  font-size: 20px;
+  letter-spacing: 7px;
+  padding-top: 13px;
+  padding-left: 10px;
+  font-family: 'sans-serif';
+  font-weight: bolder;
+  color: orange;
+}
+.companyName img {
+  width: 50px;
+}
+li {
+  list-style: none;
+  margin-left: 20px;
+  margin-top: 10px;
+  font-family: 'Ubuntu', sans-serif;
+}
+a{
+  text-decoration: none;
+  color: white;
+}
+/*TopNavigationBar End*/
+.box{
+  height: 1000px;
+  background-color: blue;
+  padding-top: 700px;
+}
+.text{
+  color: red;
+  font-size: 100px;
+}

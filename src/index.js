@@ -1,17 +1,31 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDom from "react-dom";
+import "./archintel.css";
+//import "./archintel.js"
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+let navMembers = ["Home","About","Services","Sign Up","Sign In","About","Services","Sign Up","Sign In"];
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+function TopNavigationBar({navArray}) {
+  return (
+    <>
+    <div className="navbar" id="navbarId">
+      <div className="companyName">
+        <img src="../logo512.png" alt="ArchIntel" />
+        <span>ArchIntel</span>
+      </div>
+      <ul className="nav" id="navId">
+        {" "}
+        {navArray.map(nMem => {
+          return <>
+                    <a href={"#"+nMem} className="links">
+                        <li key={nMem}>{nMem}</li>
+                    </a>
+                </>;
+        })}        
+      </ul>
+    </div>
+  </>
+  );
+}
+
+ReactDom.render(<TopNavigationBar navArray={navMembers} />, document.getElementById("root"));
