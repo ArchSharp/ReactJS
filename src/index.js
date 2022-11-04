@@ -3,12 +3,12 @@ import ReactDom from "react-dom";
 import "./archintel.css";
 //import "./archintel.js"
 import { navMembers, companyDetails } from "./Datas/NavMembers";
-import TopNavBar from "./Components/TopNavBar";
+import TopNavBars from "./Components/TopNavBar";
 
 function TopNavigationBar() {
   return (
     <>
-      <TopNavBar companyName={companyDetails} navArray={navMembers} />
+      <TopNavBars companyName={companyDetails} navArray={navMembers} />
     </>
   );
 }

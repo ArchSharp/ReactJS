@@ -3,10 +3,9 @@ export let navMembers = [
   "About",
   "Services",
   "Forex Tools",
+  "Strategies",
   "Sign Up",
   "Sign In",
-  "Services",
-  "Sign Up",
-  "Sign In",
+  "Contact",
 ];
 export let companyDetails = ["ArchIntel", "../logo512.png"];
