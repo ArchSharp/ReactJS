@@ -13,18 +13,18 @@ body {
   overflow-x: hidden;
 }
 /*TopNavigationBar*/
-.nav {
+.nav_x {
   display: flex;
   text-align: center;
   width: fit-content;
   height: 50px;
   position: absolute;
-  right: 15px;
+  right: 25px;
   padding-top: 7px;
 }
-.navbar {
+.navbar_x {
   display: flex;
-  background-color: darkmagenta;
+  background-color: "";
   height: 50px;
   color: white;
   width: var(--navWidth);
@@ -57,6 +57,14 @@ li {
 a {
   text-decoration: none;
   color: white;
+}
+
+.fixed {
+  position: fixed;
+  top: 0;
+  /* right: 0;
+  left: 0;
+  z-index: 1030; */
 }
 /*TopNavigationBar End*/
 .home img {

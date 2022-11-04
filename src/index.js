@@ -6,7 +6,6 @@ import { navMembers, companyDetails } from "./Datas/NavMembers";
 import { homeForex } from "./Datas/homeData";
 import TopNavBars from "./Components/TopNavBar";
 import Home from "./Components/Home";
-// import { myFunction } from "./archintel";
 import About from "./Components/About";
 
 function TopNavigationBar() {

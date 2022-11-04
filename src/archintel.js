@@ -4,22 +4,24 @@
 // window.onload = function () {
 //   navMarginLeft();
 // };
-const navId = document.getElementById("navId");
+// const navId = document.getElementById("navId");
 const navbarId = document.getElementById("navbarId");
 
-var navWidth = navId.style.width;
-var navbarWidth = navbarId.style.width;
+// var navWidth = navId.style.width;
+// var navbarWidth = navbarId.style.width;
 
-export function navMarginLeft() {
-  navId.style.marginLeft = navbarWidth - navWidth;
-}
+// function navMarginLeft() {
+//   navId.style.marginLeft = navbarWidth - navWidth;
+// }
+
+// export { navMarginLeft };
 
 var sticky = navbarId.offsetTop;
-function myFunction() {
+export function myFunction() {
+  alert("God is good");
   if (window.pageYOffset >= sticky + 10) {
     navbarId.style.backgroundColor = "darkmagenta";
   } else if (window.pageYOffset < sticky + 10) {
     navbarId.style.backgroundColor = "";
   }
 }
-export { myFunction };
