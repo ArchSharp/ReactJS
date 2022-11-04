@@ -59,12 +59,28 @@ a {
   color: white;
 }
 /*TopNavigationBar End*/
-.box {
-  height: 1000px;
-  background-color: blue;
-  padding-top: 700px;
+.home img {
+  /* background: url(/public/homeforex.jpg); */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-color: #464646;
+  max-width: 100%;
+  width: 100vw;
+  height: 750px;
+  padding-left: 0px;
+  padding-right: 0px;
+  background-attachment: fixed;
 }
-.text {
-  color: red;
-  font-size: 100px;
+.aboutContent {
+  height: 300px;
+}
+.sectionUnderline {
+  width: 100px;
+  height: fit-content;
+  margin-top: 30px;
+  margin-left: 50rem;
+  border-bottom: 3px solid red;
+  text-align: center;
+  font-family: "Ubuntu", sans-serif;
 }

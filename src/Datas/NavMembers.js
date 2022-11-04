@@ -6,6 +6,6 @@ export let navMembers = [
   "Strategies",
   "Sign Up",
   "Sign In",
-  "Contact",
+  "Contacts",
 ];
 export let companyDetails = ["ArchIntel", "../logo512.png"];
