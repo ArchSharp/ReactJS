@@ -59,8 +59,10 @@ a {
   color: white;
 }
 a li:hover {
-  padding: 10px;
-  background-color: goldenrod;
+  padding: 10px 10px 40px 10px;
+  background-color: red;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 .fixed {
   position: fixed;

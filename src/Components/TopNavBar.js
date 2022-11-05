@@ -20,7 +20,12 @@ function TopNavBar({ companyName, navArray }) {
           {navArray.map((nMem, index) => {
             return (
               <>
-                <a href={"#" + nMem} className="links">
+                <a
+                  href={"#" + nMem}
+                  className="links"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <li key={index}>{nMem}</li>
                 </a>
               </>
