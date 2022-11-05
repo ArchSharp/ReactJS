@@ -8,7 +8,7 @@ import TopNavBars from "./Components/TopNavBar";
 import Home from "./Components/Home";
 import About from "./Components/About";
 
-function TopNavigationBar() {
+function ArchIntelWebsite() {
   return (
     <div>
       <TopNavBars companyName={companyDetails} navArray={navMembers} />
@@ -18,4 +18,4 @@ function TopNavigationBar() {
   );
 }
 
-ReactDom.render(<TopNavigationBar />, document.getElementById("root"));
+ReactDom.render(<ArchIntelWebsite />, document.getElementById("root"));

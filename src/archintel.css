@@ -58,7 +58,10 @@ a {
   text-decoration: none;
   color: white;
 }
-
+a li:hover {
+  padding: 10px;
+  background-color: goldenrod;
+}
 .fixed {
   position: fixed;
   top: 0;
