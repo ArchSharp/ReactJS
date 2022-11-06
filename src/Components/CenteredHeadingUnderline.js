@@ -1,6 +1,6 @@
 import React from "react";
 
-const CenteredHeadingUnderline = ({ title, bwidth }) => {
+const CenteredHeadingUnderline = ({ title }) => {
   return (
     <div>
       {title !== "" ? (

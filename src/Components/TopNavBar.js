@@ -10,7 +10,7 @@ function TopNavBar({ companyName, navArray }) {
     <>
       <div className="navbar_x fixed" onScroll={myFunction} id="navbarId">
         <div className="companyName">
-          <a href="#companyName">
+          <a href="#Home">
             <img key={1} src={companyName[1]} alt={companyName[0]} />
             <span key={0}>{companyName[0]}</span>
           </a>

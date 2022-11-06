@@ -2,7 +2,6 @@ import React from "react";
 import ReactDom from "react-dom";
 import { useEffect } from "react";
 import "./archintel.css";
-//import "./archintel.js"
 import { navMembers, companyDetails } from "./Datas/NavMembers";
 import { homeForex } from "./Datas/homeData";
 import TopNavBars from "./Components/TopNavBar";
@@ -21,7 +20,7 @@ function ArchIntelWebsite() {
       const navbarId = document.getElementById("navbarId");
       var sticky = navbarId.offsetTop;
       if (scrolPosition >= sticky + 10) {
-        navbarId.style.backgroundColor = "darkmagenta";
+        navbarId.style.backgroundColor = "#464646";
       } else if (scrolPosition < sticky + 10) {
         navbarId.style.backgroundColor = "";
       }

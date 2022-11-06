@@ -99,3 +99,39 @@ a li:hover {
   padding-left: 10px;
   padding-right: 10px;
 }
+.flexCard {
+  display: flex;
+  margin-left: 2vw;
+  margin-right: 2vw;
+  margin-top: 20px;
+  height: 500px;
+}
+.card {
+  border: 1px solid blue;
+  margin-top: 50px;
+  margin-left: 1vw;
+  width: 30vw;
+  height: 400px;
+  border-radius: 15px;
+}
+.card:hover {
+  margin-top: 20px;
+  margin-bottom: 5px;
+  box-shadow: 5px 10px gainsboro;
+}
+.cardHeader {
+  width: fit-content;
+  height: fit-content;
+  margin-top: 30px;
+  margin-left: 65%;
+  border-bottom: 3px solid red;
+  text-align: center;
+  font-family: "Ubuntu", sans-serif;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.cardContent {
+  text-align: justify;
+  padding: 10% 5% 0% 5%;
+  font-family: "Ubuntu", sans-serif;
+}
