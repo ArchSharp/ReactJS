@@ -8,9 +8,14 @@ import { homeForex } from "./Datas/homeData";
 import TopNavBars from "./Components/TopNavBar";
 import Home from "./Components/Home";
 import About from "./Components/About";
+import Services from "./Components/Services";
+import ForexTools from "./Components/ForexTools";
+import Strategies from "./Components/Strategies";
+import ContactUs from "./Components/ContactUs";
 
 function ArchIntelWebsite() {
   useEffect(() => {
+    //https://bobbyhadz.com/blog/react-onscroll
     const handleScroll = (event) => {
       var scrolPosition = window.pageYOffset;
       const navbarId = document.getElementById("navbarId");
@@ -34,6 +39,10 @@ function ArchIntelWebsite() {
       <TopNavBars companyName={companyDetails} navArray={navMembers} />
       <Home homeForex={homeForex} />
       <About />
+      <Services />
+      <ForexTools />
+      <Strategies />
+      <ContactUs />
     </div>
   );
 }

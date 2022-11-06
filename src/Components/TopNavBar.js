@@ -23,8 +23,8 @@ function TopNavBar({ companyName, navArray }) {
                 <a
                   href={"#" + nMem}
                   className="links"
-                  target="_blank"
-                  rel="noreferrer"
+                  //target="_blank"
+                  //rel="noreferrer"
                 >
                   <li key={index}>{nMem}</li>
                 </a>

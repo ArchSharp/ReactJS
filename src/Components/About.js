@@ -1,11 +1,10 @@
 import React from "react";
+import CenteredHeadingUnderline from "./CenteredHeadingUnderline";
 
 function About() {
   return (
     <>
-      <div className="sectionUnderline">
-        <h3 className="aboutTitle">About Us</h3>
-      </div>
+      <CenteredHeadingUnderline title={"About Us"} />
       <div className="aboutContent"></div>
     </>
   );
