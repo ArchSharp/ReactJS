@@ -11,6 +11,7 @@ import Services from "./Components/Services";
 import ForexTools from "./Components/ForexTools";
 import Strategies from "./Components/Strategies";
 import ContactUs from "./Components/ContactUs";
+import BgImageBtwSection from "./Components/BgImageBtwSection";
 
 function ArchIntelWebsite() {
   useEffect(() => {
@@ -38,6 +39,7 @@ function ArchIntelWebsite() {
       <TopNavBars companyName={companyDetails} navArray={navMembers} />
       <Home homeForex={homeForex} />
       <About />
+      <BgImageBtwSection />
       <Services />
       <ForexTools />
       <Strategies />
