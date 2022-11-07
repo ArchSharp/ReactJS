@@ -4,19 +4,25 @@ import FlexCard from "./FlexCard";
 
 let datas = [
   {
-    header: "History",
+    header: "",
     cardContent:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non magni vel eaque sequi libero, laboriosam enim voluptatibus obcaecati officia earum voluptatem accusamus alias quam vero sapiente dolore iure consectetur maxime!",
+    cardIcon: "fa fa-graduation-cap",
+    iconText: "Education",
   },
   {
-    header: "Mission",
+    header: "",
     cardContent:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non magni vel eaque sequi libero, laboriosam enim voluptatibus obcaecati officia earum voluptatem accusamus alias quam vero sapiente dolore iure consectetur maxime!",
+    cardIcon: "fa fa-empire",
+    iconText: "Development",
   },
   {
-    header: "Vision",
+    header: "",
     cardContent:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non magni vel eaque sequi libero, laboriosam enim voluptatibus obcaecati officia earum voluptatem accusamus alias quam vero sapiente dolore iure consectetur maxime!",
+    cardIcon: "fa fa-code",
+    iconText: "Optimization",
   },
 ];
 

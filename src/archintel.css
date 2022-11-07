@@ -176,6 +176,23 @@ li a:hover {
 .Lists li {
   list-style: none;
 }
+.fa {
+  font-size: 40px;
+  font-weight: bolder;
+}
+.fa-code {
+  color: orangered;
+}
+.fa-graduation-cap {
+  color: darkcyan;
+}
+.fa-empire {
+  color: darkblue;
+}
+.fa span {
+  font-size: 20px;
+}
+
 @media screen and (max-width: 769px) {
   /*768*/
   .hamburger {

@@ -1,10 +1,17 @@
 import React from "react";
 
-const Card = ({ content, header }) => {
+const Card = ({ content, header, faIcon, faText }) => {
   return (
     <>
       <div className="card">
-        <div className="cardHeader">{header}</div>
+        {header !== "" ? <div className="cardHeader">{header}</div> : ""}
+        {faIcon !== "" ? (
+          <i class={faIcon} aria-hidden="true">
+            <span> {faText}</span>
+          </i>
+        ) : (
+          ""
+        )}
         <div className="cardContent">{content}</div>
       </div>
     </>
