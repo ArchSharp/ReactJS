@@ -24,10 +24,10 @@ let datas = [
 
 function About() {
   return (
-    <>
+    <div>
       <CenteredHeadingUnderline title={"About Us"} />
       <FlexCard flexItemsArray={datas} />
-    </>
+    </div>
   );
 }
 

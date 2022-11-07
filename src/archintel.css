@@ -94,6 +94,88 @@ li a:hover {
 .hamburger:hover {
   background-color: #2642af;
 }
+
+/*TopNavigationBar End*/
+.home img {
+  /* background: url(/public/homeforex.jpg); */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-color: #464646;
+  max-width: 100%;
+  width: 100vw;
+  height: 750px;
+  padding-left: 0px;
+  padding-right: 0px;
+  background-attachment: fixed;
+}
+.aboutContent {
+  height: 300px;
+}
+.sectionUnderline {
+  width: fit-content;
+  height: fit-content;
+  margin: 30px auto 0px auto;
+  border-bottom: 3px solid red;
+  text-align: center;
+  font-family: "Ubuntu", sans-serif;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.flexCard {
+  display: flex;
+  margin: 20px auto;
+  width: 90vw;
+  height: 500px;
+}
+.card {
+  border: 1px solid blue;
+  margin: 50px auto 0 auto;
+  width: 32%;
+  height: 90%;
+  padding: 20px;
+  /* flex: 32%; */
+  border-radius: 15px;
+}
+.card:hover {
+  margin-top: 20px;
+  margin-bottom: 5px;
+  box-shadow: 5px 10px gainsboro;
+}
+.cardHeader {
+  width: fit-content;
+  height: fit-content;
+  margin-top: 30px;
+  margin-left: 65%;
+  border-bottom: 3px solid red;
+  text-align: center;
+  font-family: "Ubuntu", sans-serif;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 18px;
+}
+.cardContent {
+  text-align: justify;
+  padding: 10% 5% 0% 5%;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.bgDivider {
+  background: url(/public/homeforex.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-color: #464646;
+  max-width: 100%;
+  width: 100vw;
+  height: 600px;
+  padding-left: 0px;
+  padding-right: 0px;
+  background-attachment: fixed;
+}
+.Lists li {
+  list-style: none;
+}
 @media screen and (max-width: 769px) {
   /*768*/
   .hamburger {
@@ -132,90 +214,21 @@ li a:hover {
   }
   .flexCard {
     flex-direction: column;
-    /* width: 90vw; */
-    /* height: 200px; */
+    height: 1350px;
+    background-color: greenyellow;
   }
   .card {
-    width: 85%;
+    border: 1px solid blue;
+    width: 90%;
     height: 90%;
+    border-radius: 15px;
+    margin: 10px auto 0px auto;
+    /* flex: 90%; */
   }
-}
-/*TopNavigationBar End*/
-.home img {
-  /* background: url(/public/homeforex.jpg); */
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  background-color: #464646;
-  max-width: 100%;
-  width: 100vw;
-  height: 750px;
-  padding-left: 0px;
-  padding-right: 0px;
-  background-attachment: fixed;
-}
-.aboutContent {
-  height: 300px;
-}
-.sectionUnderline {
-  width: fit-content;
-  height: fit-content;
-  margin: 30px auto 0px auto;
-  border-bottom: 3px solid red;
-  text-align: center;
-  font-family: "Ubuntu", sans-serif;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-.flexCard {
-  display: flex;
-  margin: 20px auto;
-  width: 90vw;
-  height: 500px;
-}
-.card {
-  border: 1px solid blue;
-  margin: 50px auto 0 auto;
-  width: 85%;
-  height: 90%;
-  border-radius: 15px;
-}
-.card:hover {
-  margin-top: 20px;
-  margin-bottom: 5px;
-  box-shadow: 5px 10px gainsboro;
-}
-.cardHeader {
-  width: fit-content;
-  height: fit-content;
-  margin-top: 30px;
-  margin-left: 65%;
-  border-bottom: 3px solid red;
-  text-align: center;
-  font-family: "Ubuntu", sans-serif;
-  padding-left: 10px;
-  padding-right: 10px;
-  font-size: 18px;
-}
-.cardContent {
-  text-align: justify;
-  padding: 10% 5% 0% 5%;
-  font-family: "Ubuntu", sans-serif;
-}
-
-.bgDivider {
-  background: url(/public/homeforex.jpg);
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  background-color: #464646;
-  max-width: 100%;
-  width: 100vw;
-  height: 750px;
-  padding-left: 0px;
-  padding-right: 0px;
-  background-attachment: fixed;
-}
-.Lists li {
-  list-style: none;
+  .bgDivider {
+    height: 300px;
+  }
+  .home img {
+    height: 400px;
+  }
 }
