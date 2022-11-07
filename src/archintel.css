@@ -130,6 +130,15 @@ li a:hover {
   .nav_x.expanded ul {
     display: block;
   }
+  .flexCard {
+    flex-direction: column;
+    /* width: 90vw; */
+    /* height: 200px; */
+  }
+  .card {
+    width: 85%;
+    height: 90%;
+  }
 }
 /*TopNavigationBar End*/
 .home img {
@@ -167,8 +176,8 @@ li a:hover {
 .card {
   border: 1px solid blue;
   margin: 50px auto 0 auto;
-  width: 28vw;
-  height: 400px;
+  width: 85%;
+  height: 90%;
   border-radius: 15px;
 }
 .card:hover {
