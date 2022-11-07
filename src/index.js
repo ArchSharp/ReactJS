@@ -15,7 +15,6 @@ import BgImageBtwSection from "./Components/BgImageBtwSection";
 
 function ArchIntelWebsite() {
   useEffect(() => {
-    //https://bobbyhadz.com/blog/react-onscroll
     const handleScroll = (event) => {
       var scrolPosition = window.pageYOffset;
       const navbarId = document.getElementById("navbarId");
@@ -25,7 +24,6 @@ function ArchIntelWebsite() {
       } else if (scrolPosition < sticky + 10) {
         navbarId.style.backgroundColor = "";
       }
-      // console.log("window.scrollY", window.scrollY);
     };
 
     window.addEventListener("scroll", handleScroll);
