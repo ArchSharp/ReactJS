@@ -160,19 +160,6 @@ li a:hover {
   font-family: "Ubuntu", sans-serif;
 }
 
-.bgDivider {
-  background: url(/public/homeforex.jpg);
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  background-color: #464646;
-  max-width: 100%;
-  width: 100vw;
-  height: 600px;
-  padding-left: 0px;
-  padding-right: 0px;
-  background-attachment: fixed;
-}
 .Lists li {
   list-style: none;
 }
@@ -224,9 +211,7 @@ li a:hover {
     margin: 10px auto 0px auto;
     /* flex: 90%; */
   }
-  .bgDivider {
-    height: 300px;
-  }
+
   .home img {
     height: 400px;
   }

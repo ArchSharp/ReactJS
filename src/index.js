@@ -39,7 +39,7 @@ function ArchIntelWebsite() {
       <TopNavBars companyName={companyDetails} navArray={navMembers} />
       <Home homeForex={homeForex} />
       <About />
-      <BgImageBtwSection />
+      <BgImageBtwSection homeForex={homeForex} />
       <Services />
       <ForexTools />
       <Strategies />
