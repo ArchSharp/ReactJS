@@ -13,7 +13,7 @@ body {
   overflow-x: hidden;
 }
 /*TopNavigationBar*/
-.nav_x {
+.nav_x ul {
   display: flex;
   text-align: center;
   width: fit-content;
@@ -29,6 +29,7 @@ body {
   color: white;
   width: var(--navWidth);
 }
+
 .companyName {
   margin-left: 20px;
 }
@@ -48,11 +49,12 @@ body {
 .companyName img {
   width: 50px;
 }
-.navbar_x li {
+.navbar_x li a {
   list-style: none;
   margin-left: 20px;
   margin-top: 10px;
   font-family: "Ubuntu", sans-serif;
+  display: block;
 }
 a {
   text-decoration: none;
@@ -70,6 +72,63 @@ a li:hover {
   /* right: 0;
   left: 0;
   z-index: 1030; */
+}
+.hamburger {
+  /* removes default border on button element */
+  border: 0;
+  height: 40px;
+  width: 40px;
+  padding: 0.5rem;
+  border-radius: 50%;
+  background-color: #283b8b;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  /* positions the icon to the right and center aligns it vertically */
+  position: absolute;
+  top: 50%;
+  right: 25px;
+  transform: translateY(-50%);
+  display: none;
+}
+.hamburger:hover {
+  background-color: #2642af;
+}
+@media screen and (max-width: 480px) {
+  /*768*/
+  .hamburger {
+    display: block;
+  }
+  .nav_x ul {
+    display: none;
+    /* // navigation menu is positioned to start 60px from the top of the document (which is directly below the navbar) */
+    position: absolute;
+    top: 50px;
+    left: 0;
+    /* // stacks the li tags vertically  */
+    flex-direction: column;
+    /* // makes menu span full height and width */
+    width: 100%;
+    height: calc(100vh - 77px);
+    background-color: white;
+    border-top: 1px solid black;
+  }
+  .nav_x li {
+    /* // centers link text and strips off margin */
+    text-align: center;
+    margin: 0;
+  }
+  .nav_x li a {
+    color: black;
+    /* // increases the surface area of the anchor tag to span the full width of the menu */
+    width: 100%;
+    padding: 1.5rem 0;
+  }
+  .nav_x li:hover {
+    background-color: #eee;
+  }
+  .nav_x.expanded ul {
+    display: block;
+  }
 }
 /*TopNavigationBar End*/
 .home img {
