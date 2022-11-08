@@ -173,12 +173,12 @@ li a:hover {
   font-family: "Ubuntu", sans-serif;
 }
 .cardBottom {
-  font-size: 40px;
+  font-size: 30px;
   font-family: "Ubuntu", sans-serif;
   font-weight: bold;
   color: #2642af;
   /* Segoe Script, Lucida Handwriting, Kunstler Script */
-  padding-left: 50%;
+  text-align: center;
 }
 
 .Lists li {
