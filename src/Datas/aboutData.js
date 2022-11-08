@@ -23,7 +23,11 @@ export let aboutUs = [
   },
   {
     header: "Mission",
-    cardContent: <List listArray={xdata} />,
+    cardContent: (
+      <>
+        <List listArray={xdata} />
+      </>
+    ),
     cardBottom: "ArchIntel",
   },
   {
