@@ -43,7 +43,7 @@ body {
   letter-spacing: 7px;
   padding-top: 13px;
   padding-left: 10px;
-  font-family: "Kunstler Script";
+  font-family: "Ubuntu", sans-serif;
   font-weight: bold;
   color: orange;
 }
@@ -174,7 +174,7 @@ li a:hover {
 }
 .cardBottom {
   font-size: 40px;
-  font-family: "Palace Script MT";
+  font-family: "Ubuntu", sans-serif;
   font-weight: bold;
   color: #2642af;
   /* Segoe Script, Lucida Handwriting, Kunstler Script */
