@@ -39,7 +39,7 @@ body {
   width: fit-content;
 }
 .companyName span {
-  font-size: 30px;
+  font-size: 20px;
   letter-spacing: 7px;
   padding-top: 13px;
   padding-left: 10px;
@@ -150,12 +150,6 @@ li a:hover {
   border-radius: 15px;
   box-shadow: 5px 10px gainsboro;
 }
-.card:hover {
-  /* margin-top: 20px;
-  margin-bottom: 5px;
-  box-shadow: 5px 10px gainsboro; */
-}
-
 .cardHeader {
   width: fit-content;
   height: fit-content;
