@@ -147,14 +147,15 @@ li a:hover {
   width: 32%;
   height: 90%;
   padding: 20px;
-  /* flex: 32%; */
   border-radius: 15px;
-}
-.card:hover {
-  margin-top: 20px;
-  margin-bottom: 5px;
   box-shadow: 5px 10px gainsboro;
 }
+.card:hover {
+  /* margin-top: 20px;
+  margin-bottom: 5px;
+  box-shadow: 5px 10px gainsboro; */
+}
+
 .cardHeader {
   width: fit-content;
   height: fit-content;
@@ -196,6 +197,15 @@ li a:hover {
 }
 .fa-empire {
   color: darkblue;
+}
+#History:hover {
+  box-shadow: 5px 8px darkcyan;
+}
+#Mission:hover {
+  box-shadow: 5px 8px orangered;
+}
+#Vision:hover {
+  box-shadow: 5px 8px darkblue;
 }
 .fa span {
   font-size: 20px;

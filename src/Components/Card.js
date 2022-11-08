@@ -3,7 +3,7 @@ import React from "react";
 const Card = ({ content, header, bottom, faIcon, faText }) => {
   return (
     <>
-      <div className="card">
+      <div className="card" id={header}>
         {header !== "" ? <div className="cardHeader">{header}</div> : ""}
         {faIcon !== "" ? (
           <i class={faIcon} aria-hidden="true">
