@@ -39,12 +39,12 @@ body {
   width: fit-content;
 }
 .companyName span {
-  font-size: 20px;
+  font-size: 30px;
   letter-spacing: 7px;
   padding-top: 13px;
   padding-left: 10px;
-  font-family: "sans-serif";
-  font-weight: bolder;
+  font-family: "Kunstler Script";
+  font-weight: bold;
   color: orange;
 }
 .companyName img {
@@ -96,8 +96,8 @@ li a:hover {
 }
 
 /*TopNavigationBar End*/
-.home img {
-  /* background: url(/public/homeforex.jpg); */
+/*.home img {
+  background: url(/public/homeforex.jpg);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -121,7 +121,7 @@ li a:hover {
   padding-left: 0px;
   padding-right: 0px;
   background-attachment: fixed;
-}
+}*/
 .aboutContent {
   height: 300px;
 }
@@ -169,8 +169,16 @@ li a:hover {
 }
 .cardContent {
   text-align: justify;
-  padding: 10% 5% 0% 5%;
+  padding: 10% 1% 0% 1%;
   font-family: "Ubuntu", sans-serif;
+}
+.cardBottom {
+  font-size: 40px;
+  font-family: "Palace Script MT";
+  font-weight: bold;
+  color: #2642af;
+  /* Segoe Script, Lucida Handwriting, Kunstler Script */
+  padding-left: 50%;
 }
 
 .Lists li {

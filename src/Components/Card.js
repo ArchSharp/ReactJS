@@ -1,6 +1,6 @@
 import React from "react";
 
-const Card = ({ content, header, faIcon, faText }) => {
+const Card = ({ content, header, bottom, faIcon, faText }) => {
   return (
     <>
       <div className="card">
@@ -13,6 +13,8 @@ const Card = ({ content, header, faIcon, faText }) => {
           ""
         )}
         <div className="cardContent">{content}</div>
+        <br />
+        <div className="cardBottom">{bottom}</div>
       </div>
     </>
   );

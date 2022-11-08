@@ -1,0 +1,21 @@
+@mixin bgImage {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-color: #464646;
+  max-width: 100%;
+  width: 100vw;
+  height: 750px;
+  padding-left: 0px;
+  padding-right: 0px;
+  background-attachment: fixed;
+}
+.home {
+  img {
+    @include bgImage;
+  }
+}
+.bgDivider {
+  @include bgImage;
+  background-image: url("../public/homeforex.jpg");
+}

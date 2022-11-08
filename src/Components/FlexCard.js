@@ -6,13 +6,14 @@ const FlexCard = ({ flexItemsArray }) => {
     <>
       <div className="flexCard">
         {flexItemsArray.map((flexItem, index) => {
-          const { header, cardContent, cardIcon, iconText } = flexItem;
+          const { header, cardContent, cardBottom, cardIcon, iconText } = flexItem;
           return (
             <Card
               content={cardContent}
               header={header}
               faIcon={cardIcon}
               faText={iconText}
+              bottom={cardBottom}
             />
           );
         })}
