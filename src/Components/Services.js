@@ -1,16 +1,16 @@
-import React from "react";
-import CenteredHeadingUnderline from "./CenteredHeadingUnderline";
-import FlexCard from "./FlexCard";
-import { datas } from "../Datas/serviceData";
+import React from 'react'
+import CenteredHeadingUnderline from './CenteredHeadingUnderline'
+import FlexCard from './FlexCard'
+import { datas } from '../Datas/serviceData'
 
 const Services = () => {
   return (
     <div>
-      {" "}
-      <CenteredHeadingUnderline title={"Services"} />
+      {' '}
+      <CenteredHeadingUnderline title={'Services'} />
       <FlexCard flexItemsArray={datas} />
     </div>
-  );
-};
+  )
+}
 
-export default Services;
+export default Services

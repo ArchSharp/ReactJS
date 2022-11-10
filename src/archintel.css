@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
 
 :root {
   --navWidth: 100vw;
@@ -25,7 +25,7 @@ body {
 }
 .navbar_x {
   display: flex;
-  background-color: "";
+  background-color: '';
   height: 50px;
   color: white;
   width: var(--navWidth);
@@ -43,7 +43,7 @@ body {
   letter-spacing: 7px;
   padding-top: 13px;
   padding-left: 10px;
-  font-family: "Ubuntu", sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   font-weight: bold;
   color: orange;
 }
@@ -54,7 +54,7 @@ body {
   list-style: none;
   margin-left: 20px;
   margin-top: 10px;
-  font-family: "Ubuntu", sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   display: block;
 }
 a {
@@ -131,9 +131,21 @@ li a:hover {
   margin: 30px auto 0px auto;
   border-bottom: 3px solid red;
   text-align: center;
-  font-family: "Ubuntu", sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   padding-left: 10px;
   padding-right: 10px;
+}
+.btns {
+  width: 100vw;
+  padding-left: 47%;
+}
+.sliderBtn {
+  margin-left: 20px;
+  color: navy;
+  border: 0px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
 }
 .flexCard {
   display: flex;
@@ -150,6 +162,19 @@ li a:hover {
   border-radius: 15px;
   box-shadow: 5px 10px gainsboro;
 }
+.card2 {
+  display: flex;
+  margin: 50px auto 0 auto;
+  width: 32%;
+  height: 90%;
+  border-radius: 15px;
+}
+.card2 img {
+  width: 100%;
+  height: 450px;
+  border-radius: 15px;
+}
+
 .cardHeader {
   width: fit-content;
   height: fit-content;
@@ -157,7 +182,7 @@ li a:hover {
   margin-left: 65%;
   border-bottom: 3px solid red;
   text-align: center;
-  font-family: "Ubuntu", sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   padding-left: 10px;
   padding-right: 10px;
   font-size: 18px;
@@ -165,11 +190,11 @@ li a:hover {
 .cardContent {
   text-align: justify;
   padding: 10% 1% 0% 1%;
-  font-family: "Ubuntu", sans-serif;
+  font-family: 'Ubuntu', sans-serif;
 }
 .cardBottom {
   font-size: 30px;
-  font-family: "Ubuntu", sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   font-weight: bold;
   color: #2642af;
   /* Segoe Script, Lucida Handwriting, Kunstler Script */

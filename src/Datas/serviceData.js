@@ -1,12 +1,12 @@
-import Lists from "../Components/Lists";
+import Lists from '../Components/Lists'
 
-let front = ["HTML", "CSS", "JavaScript"];
-let back = ["LARAVEL (PHP framework)", "React Js"];
-let mobile = ["Flutter"];
+let front = ['HTML', 'CSS', 'JavaScript']
+let back = ['LARAVEL (PHP framework)', 'React Js']
+let mobile = ['Flutter']
 
 export let datas = [
   {
-    header: "",
+    header: '',
     cardContent: (
       <>
         <div>
@@ -21,21 +21,21 @@ export let datas = [
         <br /> <Lists listArray={mobile} />
       </>
     ),
-    cardIcon: "fa fa-graduation-cap",
-    iconText: "Education",
+    cardIcon: 'fa fa-graduation-cap',
+    iconText: 'Education',
   },
   {
-    header: "",
+    header: '',
     cardContent:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non magni vel eaque sequi libero, laboriosam enim voluptatibus obcaecati officia earum voluptatem accusamus alias quam vero sapiente dolore iure consectetur maxime!",
-    cardIcon: "fa fa-empire",
-    iconText: "Development",
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Non magni vel eaque sequi libero, laboriosam enim voluptatibus obcaecati officia earum voluptatem accusamus alias quam vero sapiente dolore iure consectetur maxime!',
+    cardIcon: 'fa fa-empire',
+    iconText: 'Development',
   },
   {
-    header: "",
+    header: '',
     cardContent:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non magni vel eaque sequi libero, laboriosam enim voluptatibus obcaecati officia earum voluptatem accusamus alias quam vero sapiente dolore iure consectetur maxime!",
-    cardIcon: "fa fa-code",
-    iconText: "Optimization",
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Non magni vel eaque sequi libero, laboriosam enim voluptatibus obcaecati officia earum voluptatem accusamus alias quam vero sapiente dolore iure consectetur maxime!',
+    cardIcon: 'fa fa-code',
+    iconText: 'Optimization',
   },
-];
+]
