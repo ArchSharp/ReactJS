@@ -1,20 +1,32 @@
 import React from 'react'
 
-const FlexCard = ({ flexItemsArray }) => {
+const FlexCard = ({ flexItemsArray, range }) => {
   return (
     <>
       <div className='flexCard'>
-        {flexItemsArray.map((eachImg) => {
+        {flexItemsArray.map((eachImg, index) => {
+          let arraySize = flexItemsArray.length
+          console.log('Array size ', arraySize, ' range ', range)
           return (
-            <div className='card2'>
-              <a
-                href='https://www.mql5.com/en/market/product/87678?source=Site+Profile+Seller#description'
-                target='_blank'
-                rel='noreferrer'
-              >
-                <img src={eachImg} alt='someimages' srcset='' />
-              </a>
-            </div>
+            <>
+              {((range === 3 && index < 3 && arraySize >= range) ||
+                (range !== 3 &&
+                  range > 3 &&
+                  index >= range - 3 &&
+                  index < range &&
+                  arraySize >= range)) && (
+                <div className='card2'>
+                  <a
+                    href='https://www.mql5.com/en/market/product/87678?source=Site+Profile+Seller#description'
+                    target='_blank'
+                    rel='noreferrer'
+                    key={index}
+                  >
+                    <img src={eachImg} alt='someimages' srcset='' />
+                  </a>
+                </div>
+              )}
+            </>
           )
         })}
       </div>
