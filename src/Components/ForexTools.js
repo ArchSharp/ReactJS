@@ -15,13 +15,13 @@ const ForexTools = () => {
     }
   }
   const slideNext = () => {
-    if (imageRange >= 3) {
+    if (imageRange >= 3 && imageRange < forexTools.length) {
       setImageRange((prevState) => {
         return prevState + 3
       })
     }
   }
-  // console.log(imageRange)
+
   let prev = '<',
     next = '>'
   return (

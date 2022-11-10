@@ -5,16 +5,14 @@ const FlexCard = ({ flexItemsArray, range }) => {
     <>
       <div className='flexCard'>
         {flexItemsArray.map((eachImg, index) => {
-          let arraySize = flexItemsArray.length
-          console.log('Array size ', arraySize, ' range ', range)
+          console.log('range ', range)
           return (
             <>
-              {((range === 3 && index < 3 && arraySize >= range) ||
+              {((range === 3 && index < 3) ||
                 (range !== 3 &&
                   range > 3 &&
                   index >= range - 3 &&
-                  index < range &&
-                  arraySize >= range)) && (
+                  index < range)) && (
                 <div className='card2'>
                   <a
                     href='https://www.mql5.com/en/market/product/87678?source=Site+Profile+Seller#description'

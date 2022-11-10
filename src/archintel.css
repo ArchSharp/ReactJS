@@ -136,8 +136,8 @@ li a:hover {
   padding-right: 10px;
 }
 .btns {
-  width: 100vw;
-  padding-left: 47%;
+  width: fit-content;
+  margin: 20px auto;
 }
 .sliderBtn {
   margin-left: 20px;
@@ -146,6 +146,7 @@ li a:hover {
   cursor: pointer;
   font-size: 20px;
   font-weight: bold;
+  background-color: transparent;
 }
 .flexCard {
   display: flex;
