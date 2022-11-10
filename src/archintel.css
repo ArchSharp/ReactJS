@@ -282,4 +282,7 @@ li a:hover {
   .home img {
     height: 400px;
   }
+  .card2 {
+    width: 90%;
+  }
 }
