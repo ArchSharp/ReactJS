@@ -17,5 +17,12 @@
 }
 .bgDivider {
   @include bgImage;
-  background-image: url("../public/homeforex.jpg");
+  background-image: url('../public/homeforex.jpg');
+}
+@media screen and (max-width: 769px) {
+  .home {
+    img {
+      height: 60vh;
+    }
+  }
 }
