@@ -21,7 +21,7 @@ function ArchIntelWebsite() {
       const navbarId = document.getElementById('navbarId')
       var sticky = navbarId.offsetTop
       if (scrolPosition >= sticky + 10) {
-        navbarId.style.backgroundColor = '#464646'
+        navbarId.style.backgroundColor = 'rgb(75, 125, 125)'
       } else if (scrolPosition < sticky + 10) {
         navbarId.style.backgroundColor = ''
       }

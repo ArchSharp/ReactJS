@@ -1,14 +1,14 @@
-@mixin bgImage {
+@mixin bgImage($imgHeight: 750px, $attachMent: fixed) {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
   background-color: #464646;
   max-width: 100%;
   width: 100vw;
-  height: 750px;
+  height: $imgHeight;
   padding-left: 0px;
   padding-right: 0px;
-  background-attachment: fixed;
+  background-attachment: $attachMent;
 }
 .home {
   img {
@@ -16,8 +16,27 @@
   }
 }
 .bgDivider {
-  @include bgImage;
+  @include bgImage($imgHeight: 500px);
   background-image: url('../public/homeforex.jpg');
+}
+.contactUs {
+  margin-top: 30px;
+  @include bgImage($imgHeight: 600px, $attachMent: '');
+  background-image: url('../public/contactImg.jpg');
+  .ctList {
+    padding-top: 140px;
+    .Lists {
+      ul {
+        width: fit-content;
+        li {
+          padding-top: 1rem;
+          padding-left: 20px;
+          color: aliceblue;
+          font-family: 'Courier New', Courier, monospace;
+        }
+      }
+    }
+  }
 }
 @media screen and (max-width: 769px) {
   .home {

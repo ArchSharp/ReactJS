@@ -61,7 +61,7 @@ a {
   text-decoration: none;
   color: white;
 }
-li a:hover {
+.navbar_x li a:hover {
   padding: 10px 10px 40px 10px;
   background-color: red;
   border-bottom-left-radius: 10px;

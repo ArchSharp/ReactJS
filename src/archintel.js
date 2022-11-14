@@ -1,11 +1,11 @@
-// window.onscroll = function () {
-//   myFunction();
-// };
+window.onscroll = function () {
+  myFunction()
+}
 // window.onload = function () {
 //   navMarginLeft();
 // };
 // const navId = document.getElementById("navId");
-const navbarId = document.getElementById("navbarId");
+const navbarId = document.getElementById('navbarId')
 
 // var navWidth = navId.style.width;
 // var navbarWidth = navbarId.style.width;
@@ -16,12 +16,12 @@ const navbarId = document.getElementById("navbarId");
 
 // export { navMarginLeft };
 
-var sticky = navbarId.offsetTop;
+var sticky = navbarId.offsetTop
 export function myFunction() {
-  alert("God is good");
+  alert('God is good')
   if (window.pageYOffset >= sticky + 10) {
-    navbarId.style.backgroundColor = "darkmagenta";
+    navbarId.style.backgroundColor = 'navy'
   } else if (window.pageYOffset < sticky + 10) {
-    navbarId.style.backgroundColor = "";
+    navbarId.style.backgroundColor = ''
   }
 }
