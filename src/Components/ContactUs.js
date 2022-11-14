@@ -24,7 +24,7 @@ var contactHandles = [
     TeraWork
   </a>,
   <a
-    href='#https://www.linkedin.com/in/raphael-tunji-34a1073a/'
+    href='https://www.linkedin.com/in/raphael-tunji-34a1073a/'
     target='_blank'
     rel='noreferrer'
   >
