@@ -164,7 +164,6 @@ a {
   box-shadow: 5px 10px gainsboro;
 }
 .card2 {
-  display: flex;
   margin: 50px auto 0 auto;
   width: 32%;
   height: 90%;
@@ -175,7 +174,20 @@ a {
   height: 100%;
   border-radius: 15px;
 }
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
 
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
 .cardHeader {
   width: fit-content;
   height: fit-content;

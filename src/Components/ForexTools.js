@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import CenteredHeadingUnderline from './CenteredHeadingUnderline'
 import FlexCard from './FlexCard2'
 import { forexTools } from '../Datas/forexTool'
@@ -21,6 +21,15 @@ const ForexTools = () => {
       })
     }
   }
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      imageRange > 3
+        ? setImageRange(imageRange - 3)
+        : setImageRange(imageRange + 3)
+    }, 3000)
+    return () => clearTimeout(timer)
+  }, [imageRange])
 
   let prev = '<',
     next = '>'

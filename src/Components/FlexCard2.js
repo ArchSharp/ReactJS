@@ -3,7 +3,7 @@ import React from 'react'
 const FlexCard = ({ flexItemsArray, range }) => {
   return (
     <>
-      <div className='flexCard'>
+      <div className='flexCard fade'>
         {flexItemsArray.map((eachImg, index) => {
           console.log('range ', range)
           return (
