@@ -1,12 +1,24 @@
-import Lists from '../Components/Lists'
+import Lists from "../Components/Lists";
 
-let front = ['HTML', 'CSS', 'JavaScript']
-let back = ['LARAVEL (PHP framework)', 'React Js']
-let mobile = ['Flutter']
+let front = ["HTML", "CSS", "JavaScript"];
+let back = ["LARAVEL (PHP framework)", "React Js"];
+let mobile = ["Flutter"];
+let development = [
+  "Web Apps",
+  "Static Website",
+  "Dynamic Website",
+  "Games",
+  "Softwares",
+  "Expert advisors (Robot)",
+  "Trading indicators",
+  "Scripts",
+  "Trading Dashboard",
+  "etc.",
+];
 
 export let datas = [
   {
-    header: '',
+    header: "",
     cardContent: (
       <>
         <div>
@@ -21,21 +33,30 @@ export let datas = [
         <br /> <Lists listArray={mobile} />
       </>
     ),
-    cardIcon: 'fa fa-graduation-cap',
-    iconText: 'Education',
+    cardIcon: "fa fa-graduation-cap",
+    iconText: "Education",
   },
   {
-    header: '',
-    cardContent:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Non magni vel eaque sequi libero, laboriosam enim voluptatibus obcaecati officia earum voluptatem accusamus alias quam vero sapiente dolore iure consectetur maxime!',
-    cardIcon: 'fa fa-empire',
-    iconText: 'Development',
+    header: "",
+    cardContent: (
+      <>
+        <div>
+          We are fully equiped with certified full stack developers who can
+          design your applications/softwares very fast and still meet the
+          desired quality.
+        </div>
+        <br /> <Lists listArray={development} />
+      </>
+    ),
+
+    cardIcon: "fa fa-empire",
+    iconText: "Development",
   },
   {
-    header: '',
+    header: "",
     cardContent:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Non magni vel eaque sequi libero, laboriosam enim voluptatibus obcaecati officia earum voluptatem accusamus alias quam vero sapiente dolore iure consectetur maxime!',
-    cardIcon: 'fa fa-code',
-    iconText: 'Optimization',
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non magni vel eaque sequi libero, laboriosam enim voluptatibus obcaecati officia earum voluptatem accusamus alias quam vero sapiente dolore iure consectetur maxime!",
+    cardIcon: "fa fa-code",
+    iconText: "Optimization",
   },
-]
+];
