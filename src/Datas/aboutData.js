@@ -9,9 +9,9 @@ let xdata2 = [
   "To create a world environment where more than 70% of the population can comfortably live with or without white collar jobs",
 ];
 let xdata3 = [
-  "ArchIntel is a technological company was founded in 2009. We observed two major problems in the world" +
-    " lack of skils and umemployment. Lack of huge fees to acquire these skills has been a major drawback to acquiring these skills.",
-  "Thus, We saddled upon ourselves with the responsibility of providing solutions to these problems.",
+  "ArchIntel technological company was founded in 2009. We observed two major problems in the world" +
+    " lack of skills and umemployment. Lack of huge fees to acquire these skills has been a major setback to acquiring these skills.",
+  "Thus, We saddled upon ourselves the responsibility of providing solutions to these problems.",
   "We have also observed that Technology and the Financial market have more than enough capacity to solve these problems ",
 ];
 
