@@ -244,6 +244,9 @@ a {
 }
 
 @media screen and (max-width: 769px) {
+  .hideContact {
+    visibility: hidden;
+  }
   /*768*/
   .hamburger {
     display: block;
