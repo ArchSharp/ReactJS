@@ -8,34 +8,34 @@ var contactHandles = [
     target='_blank'
     rel='noreferrer'
   >
-    Facebook
+    <i class="fa fa-facebook-square"></i> Facebook
   </a>,
   <a href='https://twitter.com/ArchIntel1' target='_blank' rel='noreferrer'>
-    Twitter
+    <i class="fa fa-twitter"></i> Twitter
   </a>,
   <a href='https://www.instagram.com/' target='_blank' rel='noreferrer'>
-    Instagram
+    <i class="fa fa-instagram"></i> Instagram
   </a>,
   <a
     href='http://www.terawork.com/home/archraphael'
     target='_blank'
     rel='noreferrer'
   >
-    TeraWork
+     <img src="./terawork.png" alt="error" style={{width: '30px'}}></img> TeraWork
   </a>,
   <a
     href='https://www.linkedin.com/in/raphael-tunji-34a1073a/'
     target='_blank'
     rel='noreferrer'
   >
-    LinkedIn
+    <i class="fa fa-linkedin-square" aria-hidden="true"></i> LinkedIn
   </a>,
   <a
     href='https://www.mql5.com/en/users/archraphael'
     target='_blank'
     rel='noreferrer'
   >
-    MQL5
+    <img src="./mql5.png" alt="error" style={{width: '50px', height:'20px'}}></img> MQL5
   </a>,
 ]
 
