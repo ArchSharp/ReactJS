@@ -25,12 +25,21 @@ export let datas = [
           ArchIntel Tutors are ready to take you through a systematic arranged
           topics on our selected programming languages.
         </div>
-        <br /> <span>Front-End Languages</span>
-        <br /> <Lists listArray={front} />
-        <br /> <span>Back-End Languages</span>
-        <br /> <Lists listArray={back} />
-        <br /> <span>Mobile Languages</span>
-        <br /> <Lists listArray={mobile} />
+        <br />{" "}
+        <h4>
+          <span>Front-End Languages</span>
+        </h4>
+        <Lists listArray={front} />
+        <br />{" "}
+        <h4>
+          <span>Back-End Languages</span>
+        </h4>
+        <Lists listArray={back} />
+        <br />{" "}
+        <h4>
+          <span>Mobile Languages</span>
+        </h4>{" "}
+        <Lists listArray={mobile} />
       </>
     ),
     cardIcon: "fa fa-graduation-cap",
@@ -44,8 +53,13 @@ export let datas = [
           We are fully equiped with certified full stack developers who can
           design your applications/softwares very fast and still meet the
           desired quality.
+          <br />
+          <br />
         </div>
-        <br /> <Lists listArray={development} />
+        <h4>
+          <span> We develop:</span>
+        </h4>
+        <Lists listArray={development} />
       </>
     ),
 
