@@ -230,7 +230,12 @@ a {
 .fa-empire {
   color: darkblue;
 }
-.fa-facebook-square:hover {
+.fa-facebook-square:hover,
+.fa-twitter:hover,
+.fa-instagram:hover,
+.fa-terawork:hover,
+.fa-linkedin-square:hover,
+.fa-mql5:hover {
   animation: zoom-in-zoom-out 2s ease-out infinite;
 }
 @keyframes zoom-in-zoom-out {

@@ -22,7 +22,12 @@ var contactHandles = [
     target="_blank"
     rel="noreferrer"
   >
-    <img src="./terawork.png" alt="error" style={{ width: "30px" }}></img>{" "}
+    <img
+      src="./terawork.png"
+      alt="error"
+      style={{ width: "30px" }}
+      className="fa-terawork"
+    ></img>{" "}
     <span class="hideContact">TeraWork</span>
   </a>,
   <a
@@ -42,6 +47,7 @@ var contactHandles = [
       src="./mql5.png"
       alt="error"
       style={{ width: "50px", height: "20px" }}
+      className="fa-mql5"
     ></img>{" "}
     <span class="hideContact">MQL5</span>
   </a>,
