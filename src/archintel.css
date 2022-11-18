@@ -230,6 +230,16 @@ a {
 .fa-empire {
   color: darkblue;
 }
+.fa-signal {
+  color: green;
+}
+.fa-user-plus {
+  position: absolute;
+  top: 5px;
+  /* margin-right: 50px; */
+  /* margin-left: 1px; */
+  color: orangered;
+}
 .fa-mql5,
 .fa-terawork {
   border-radius: 5px;

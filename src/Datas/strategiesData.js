@@ -42,7 +42,7 @@ export let datas = [
         <Lists listArray={mobile} />
       </>
     ),
-    cardIcon: "fa fa-graduation-cap",
+    cardIcon: "fa fa-signal",
     iconText: "Forex",
     topMargin: "60px",
   },
@@ -64,7 +64,7 @@ export let datas = [
       </>
     ),
 
-    cardIcon: "fa fa-empire",
+    cardIcon: "fa fa-code",
     iconText: "Coding",
     topMargin: "30px",
   },
@@ -72,7 +72,7 @@ export let datas = [
     header: "",
     cardContent:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non magni vel eaque sequi libero, laboriosam enim voluptatibus obcaecati officia earum voluptatem accusamus alias quam vero sapiente dolore iure consectetur maxime!",
-    cardIcon: "fa fa-code",
+    cardIcon: "fa fa-empire",
     iconText: "Advanced",
     topMargin: "5px",
   },
