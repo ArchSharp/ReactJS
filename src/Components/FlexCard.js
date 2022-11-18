@@ -1,13 +1,19 @@
-import React from 'react'
-import Card from './Card'
+import React from "react";
+import Card from "./Card";
 
 const FlexCard = ({ flexItemsArray }) => {
   return (
     <>
-      <div className='flexCard'>
+      <div className="flexCard">
         {flexItemsArray.map((flexItem, index) => {
-          const { header, cardContent, cardBottom, cardIcon, iconText } =
-            flexItem
+          const {
+            header,
+            cardContent,
+            cardBottom,
+            cardIcon,
+            iconText,
+            topMargin,
+          } = flexItem;
           return (
             <Card
               content={cardContent}
@@ -15,12 +21,13 @@ const FlexCard = ({ flexItemsArray }) => {
               faIcon={cardIcon}
               faText={iconText}
               bottom={cardBottom}
+              topMargin={topMargin}
             />
-          )
+          );
         })}
       </div>
     </>
-  )
-}
+  );
+};
 
-export default FlexCard
+export default FlexCard;

@@ -230,12 +230,17 @@ a {
 .fa-empire {
   color: darkblue;
 }
+.fa-mql5,
+.fa-terawork {
+  border-radius: 5px;
+}
 .fa-facebook-square:hover,
 .fa-twitter:hover,
 .fa-instagram:hover,
 .fa-terawork:hover,
 .fa-linkedin-square:hover,
 .fa-mql5:hover {
+  color: #283b8b;
   animation: zoom-in-zoom-out 2s ease-out infinite;
 }
 @keyframes zoom-in-zoom-out {
@@ -244,6 +249,22 @@ a {
   }
   50% {
     transform: scale(1.5, 1.5);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+.Coding:hover,
+.Forex:hover,
+.Advanced:hover {
+  animation: strategy-zoom-in-zoom-out 2s ease-out;
+}
+@keyframes strategy-zoom-in-zoom-out {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(0.8, 0.8);
   }
   100% {
     transform: scale(1, 1);
