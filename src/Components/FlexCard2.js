@@ -1,11 +1,12 @@
-import React from 'react'
+import React from "react";
 
 const FlexCard = ({ flexItemsArray, range }) => {
   return (
     <>
-      <div className='flexCard fade'>
+      <div className="flexCard fade">
         {flexItemsArray.map((eachImg, index) => {
-          console.log('range ', range)
+          const { imgUrl, OnlineImgUrl } = eachImg;
+          console.log("range ", range);
           return (
             <>
               {((range === 3 && index < 3) ||
@@ -13,23 +14,23 @@ const FlexCard = ({ flexItemsArray, range }) => {
                   range > 3 &&
                   index >= range - 3 &&
                   index < range)) && (
-                <div className='card2'>
+                <div className="card2">
                   <a
-                    href='https://www.mql5.com/en/market/product/87678?source=Site+Profile+Seller#description'
-                    target='_blank'
-                    rel='noreferrer'
+                    href={OnlineImgUrl}
+                    target="_blank"
+                    rel="noreferrer"
                     key={index}
                   >
-                    <img src={eachImg} alt='someimages' srcset='' />
+                    <img src={imgUrl} alt="someimages" srcset="" />
                   </a>
                 </div>
               )}
             </>
-          )
+          );
         })}
       </div>
     </>
-  )
-}
+  );
+};
 
-export default FlexCard
+export default FlexCard;
