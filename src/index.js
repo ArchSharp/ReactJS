@@ -4,9 +4,11 @@ import { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./archintel.css";
 import "./archintel.scss";
-import User from "./Components/User";
+// import User from "./Components/User";
 import LayOut from "./Components/LayOut";
 import NoPage from "./Components/NoPage";
+import SignIn from "./Components/SignIn";
+import SignUp from "./Components/SignUp";
 
 function ArchIntelWebsite() {
   useEffect(() => {
@@ -32,7 +34,10 @@ function ArchIntelWebsite() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<LayOut />}></Route>
-          <Route path="user" element={<User />} />
+          {/* <Route path="user" element={<User />}> */}
+          <Route path="user/signin" element={<SignIn />}></Route>
+          <Route path="user/signup" element={<SignUp />}></Route>
+          {/* </Route> */}
           <Route path="*" element={<NoPage />} />
         </Routes>
       </BrowserRouter>
