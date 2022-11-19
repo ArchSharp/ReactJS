@@ -4,8 +4,8 @@ const SignIn = () => {
   return (
     <div
       style={{
-        marginTop: "50vh",
-        marginLeft: "45vw",
+        width: "fit-content",
+        margin: "100px auto",
         fontSize: "30px",
         color: "#072A6C",
         fontWeight: "bolder",

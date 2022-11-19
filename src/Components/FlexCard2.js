@@ -6,7 +6,7 @@ const FlexCard = ({ flexItemsArray, range }) => {
       <div className="flexCard fade">
         {flexItemsArray.map((eachImg, index) => {
           const { imgUrl, OnlineImgUrl } = eachImg;
-          console.log("range ", range);
+          //console.log("range ", range);
           return (
             <>
               {((range === 3 && index < 3) ||

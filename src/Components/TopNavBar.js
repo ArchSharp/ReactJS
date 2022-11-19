@@ -2,8 +2,6 @@ import React from "react";
 import { useState } from "react";
 import { Outlet, Link } from "react-router-dom";
 
-// import { myFunction } from "../archintel";
-
 function TopNavBar({ companyName, navArray }) {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
   return (
@@ -40,17 +38,22 @@ function TopNavBar({ companyName, navArray }) {
             {" "}
             {navArray.map((navMember, index) => {
               const { navName, navLink } = navMember;
+              let blank =
+                navName === "Sign Up" || navName === "Sign In"
+                  ? "_blank"
+                  : "_self";
+              console.log(blank);
               return (
                 <>
                   <li key={index}>
-                    {/* <a
-                      href={navLink}
+                    <Link
+                      to={navLink}
                       className="links"
-                      //target="_blank"
-                      //rel="noreferrer"
-                    > */}
-                    <Link to={navLink}>{navName}</Link>
-                    {/* </a> */}
+                      target={blank}
+                      rel="noreferrer"
+                    >
+                      {navName}
+                    </Link>
                   </li>
                 </>
               );
