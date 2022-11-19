@@ -38,18 +38,18 @@ function TopNavBar({ companyName, navArray }) {
             {" "}
             {navArray.map((navMember, index) => {
               const { navName, navLink } = navMember;
-              let blank =
-                navName === "Sign Up" || navName === "Sign In"
-                  ? "_blank"
-                  : "_self";
-              console.log(blank);
+              // let blank =
+              //   navName === "Sign Up" || navName === "Sign In"
+              //     ? "_blank"
+              //     : "_self";
+              // console.log(blank);
               return (
                 <>
                   <li key={index}>
                     <Link
                       to={navLink}
                       className="links"
-                      target={blank}
+                      target="_self"
                       rel="noreferrer"
                     >
                       {navName}
