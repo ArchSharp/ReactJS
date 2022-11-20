@@ -2,11 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const SignUp = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  };
   return (
     <>
       <div className="usersign">SignUp</div>
       <div className="form">
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="form-control">
             <label htmlFor="firstName">First Name : </label>
             <input
