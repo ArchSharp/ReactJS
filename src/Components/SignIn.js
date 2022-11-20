@@ -48,7 +48,9 @@ const SignIn = () => {
               SignUp
             </Link>
           </div>
-          <button>SignIn</button>
+          <button type="submit" className="btn">
+            SignIn
+          </button>
         </form>
       </div>
       <Outlet />
