@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 const SignUp = () => {
   const handleSubmit = (event) => {
@@ -81,6 +81,7 @@ const SignUp = () => {
           <button>SignUp</button>
         </form>
       </div>
+      <Outlet />
     </>
   );
 };

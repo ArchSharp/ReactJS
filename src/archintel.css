@@ -366,6 +366,7 @@ form .form-control input {
   border-color: transparent;
   margin-top: 1rem;
   letter-spacing: 0.1rem;
+  margin-left: 200px;
   padding: 0.15rem 0.25rem;
   text-transform: capitalize;
   border-radius: 0.25rem;

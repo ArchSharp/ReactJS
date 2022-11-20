@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 const SignIn = () => {
   const handleSubmit = (event) => {
@@ -51,6 +51,7 @@ const SignIn = () => {
           <button>SignIn</button>
         </form>
       </div>
+      <Outlet />
     </>
   );
 };
