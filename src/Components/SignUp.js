@@ -1,21 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const SignUp = () => {
   return (
     <>
-      <div
-        style={{
-          width: "fit-content",
-          marginTop: "100px",
-          marginLeft: "auto",
-          marginRight: "auto",
-          fontSize: "30px",
-          color: "#072A6C",
-          fontWeight: "bolder",
-        }}
-      >
-        SignUp
-      </div>
+      <div className="usersign">SignUp</div>
       <div className="form">
         <form>
           <div className="form-control">
@@ -48,6 +37,45 @@ const SignUp = () => {
               onChange={() => {}}
             />
           </div>
+          <div className="form-control">
+            <label htmlFor="password">Password : </label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value=""
+              onChange={() => {}}
+            />
+          </div>
+          <div className="form-control">
+            <label htmlFor="password">Confirm Password : </label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value=""
+              onChange={() => {}}
+            />
+          </div>
+          <div
+            style={{
+              display: "flex",
+              marginLeft: "auto",
+              width: "fit-content",
+            }}
+          >
+            <p>Already a member? </p>
+            <Link
+              style={{ marginLeft: "10px" }}
+              to="/user/signin"
+              className="links"
+              target="_self"
+              rel="noreferrer"
+            >
+              SignIn
+            </Link>
+          </div>
+          <button>SignUp</button>
         </form>
       </div>
     </>

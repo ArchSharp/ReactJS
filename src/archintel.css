@@ -327,6 +327,50 @@ form .form-control input {
   border: 0px solid white;
 } */
 
+.usersign {
+  width: fit-content;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 30px;
+  color: #072a6c;
+  font-weight: bolder;
+}
+.form {
+  background: lightblue;
+  max-width: 500px;
+  /* height: 300px; */
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 4rem;
+  padding: 1rem 2rem;
+  border-radius: 0.25rem;
+}
+.form input {
+  background: hsl(210, 36%, 96%);
+  border-color: transparent;
+  border-radius: 0.25rem;
+  padding: 0.25rem 0.5rem;
+}
+.form-control {
+  margin: 0.5rem 0;
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  align-items: center;
+}
+.form button {
+  display: inline-block;
+  background: #222;
+  color: #fff;
+  border-color: transparent;
+  margin-top: 1rem;
+  letter-spacing: 0.1rem;
+  padding: 0.15rem 0.25rem;
+  text-transform: capitalize;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
 @media screen and (max-width: 769px) {
   .hideContact {
     visibility: hidden;

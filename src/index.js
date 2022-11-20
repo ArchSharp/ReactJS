@@ -2,12 +2,14 @@ import React from "react";
 import ReactDom from "react-dom";
 import { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+// import "./index.css";
 import "./archintel.css";
 import "./archintel.scss";
-import "./index.css";
 import LayOut from "./Components/LayOut";
 import NoPage from "./Components/NoPage";
-import User from "./Components/User";
+// import User from "./Components/User";
+import SignUp from "./Components/SignUp";
+import SignIn from "./Components/SignIn";
 
 function ArchIntelWebsite() {
   useEffect(() => {
@@ -35,8 +37,8 @@ function ArchIntelWebsite() {
         <Routes>
           <Route path="/" element={<LayOut />}></Route>
           {/* <Route path="/" element={<User />}> */}
-          <Route path="user/signin" element={<User />}></Route>
-          <Route path="user/signup" element={<User />}></Route>
+          <Route path="user/signin" element={<SignIn />}></Route>
+          <Route path="user/signup" element={<SignUp />}></Route>
           {/* </Route> */}
           <Route path="*" element={<NoPage />} />
         </Routes>
