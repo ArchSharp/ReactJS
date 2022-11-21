@@ -1,9 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 
 const SignUp = () => {
+  const [person, setPerson] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    confirmPassword:"",
+  });
+  const handleChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setPerson({ ...person, [name]: value });
+  };
   const handleSubmit = (event) => {
     event.preventDefault();
+    if (person.firstName && person.email && person.password) {
+      const newPerson = { ...person, id: new Date().getTime().toString() };
+      console.log(newPerson);
+      setPerson({ firstName: "", lastName:"", email: "", password: "",confirmPassword:"" });
+    }
   };
   return (
     <>
@@ -16,8 +33,8 @@ const SignUp = () => {
               type="text"
               id="firstName"
               name="firstName"
-              value=""
-              onChange={() => {}}
+              value={person.firstName}
+              onChange={handleChange}
             />
           </div>
           <div className="form-control">
@@ -26,8 +43,8 @@ const SignUp = () => {
               type="text"
               id="lastName"
               name="lastName"
-              value=""
-              onChange={() => {}}
+              value={person.lastName}
+              onChange={handleChange}
             />
           </div>
           <div className="form-control">
@@ -36,8 +53,8 @@ const SignUp = () => {
               type="email"
               id="email"
               name="email"
-              value=""
-              onChange={() => {}}
+              value={person.email}
+              onChange={handleChange}
             />
           </div>
           <div className="form-control">
@@ -46,18 +63,18 @@ const SignUp = () => {
               type="password"
               id="password"
               name="password"
-              value=""
-              onChange={() => {}}
+              value={person.password}
+              onChange={handleChange}
             />
           </div>
           <div className="form-control">
             <label htmlFor="password">Confirm Password : </label>
             <input
               type="password"
-              id="password"
-              name="password"
-              value=""
-              onChange={() => {}}
+              id="confirmPassword"
+              name="confirmPassword"
+              value={person.confirmPassword}
+              onChange={handleChange}
             />
           </div>
           <div

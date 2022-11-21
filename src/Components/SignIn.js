@@ -1,9 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 
 const SignIn = () => {
+  const [person, setPerson] = useState({
+    email: "",
+    password: "",
+  });
+  const handleChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setPerson({ ...person, [name]: value });
+  };
   const handleSubmit = (event) => {
     event.preventDefault();
+    if (person.email && person.password) {
+      const newPerson = { ...person, id: new Date().getTime().toString() };
+      console.log(newPerson);
+      setPerson({
+        email: "",
+        password: "",
+      });
+    }
   };
   return (
     <>
@@ -16,8 +33,8 @@ const SignIn = () => {
               type="email"
               id="email"
               name="email"
-              value=""
-              onChange={() => {}}
+              value={person.email}
+              onChange={handleChange}
             />
           </div>
           <div className="form-control">
@@ -26,8 +43,8 @@ const SignIn = () => {
               type="password"
               id="password"
               name="password"
-              value=""
-              onChange={() => {}}
+              value={person.password}
+              onChange={handleChange}
             />
           </div>
           <div
