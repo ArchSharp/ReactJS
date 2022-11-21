@@ -233,6 +233,10 @@ a {
 .fa-signal {
   color: green;
 }
+.fa-code,
+.fa-empire,.fa-graduation-cap,.fa-signal {
+  animation: strategy-zoom-in-zoom-out 2s ease-out infinite;
+}
 .fa-user-plus {
   position: absolute;
   top: 5px;

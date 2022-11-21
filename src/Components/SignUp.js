@@ -27,7 +27,7 @@ const SignUp = () => {
         password: "",
         confirmPassword: "",
       });
-      const { firstName, lastName, email, password } = newPerson;
+      const { id, firstName, lastName, email, password } = newPerson;
       const response = await fetch(
         "https://archintel-api-default-rtdb.firebaseio.com/signupDB.json",
         {
@@ -36,6 +36,7 @@ const SignUp = () => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
+            id,
             firstName,
             lastName,
             email,
@@ -43,7 +44,7 @@ const SignUp = () => {
           }),
         }
       );
-      if (response.status === "200") {
+      if (response.status === 200) {
         console.log("Success signup");
       }
     }
