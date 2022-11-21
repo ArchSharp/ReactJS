@@ -7,8 +7,8 @@ const SignIn = () => {
   };
   return (
     <>
-      <div className="usersign">SignIn</div>
-      <div className="form">
+      <fieldset className="form">
+        <legend className="usersign">Sign In</legend>
         <form onSubmit={handleSubmit}>
           <div className="form-control">
             <label htmlFor="email">Email : </label>
@@ -61,7 +61,7 @@ const SignIn = () => {
             </button>
           </div>
         </form>
-      </div>
+      </fieldset>
       <Outlet />
     </>
   );
