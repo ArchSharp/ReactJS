@@ -48,9 +48,18 @@ const SignIn = () => {
               SignUp
             </Link>
           </div>
-          <button type="submit" className="btn">
-            SignIn
-          </button>
+          <div
+            style={{
+              display: "flex",
+              marginLeft: "auto",
+              marginRight: "auto",
+              width: "fit-content",
+            }}
+          >
+            <button type="submit" className="btn">
+              SignIn
+            </button>
+          </div>
         </form>
       </div>
       <Outlet />
