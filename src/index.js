@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDom from "react-dom";
 import { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -10,8 +10,17 @@ import NoPage from "./Components/NoPage";
 // import User from "./Components/User";
 import SignUp from "./Components/SignUp";
 import SignIn from "./Components/SignIn";
+import { SignUpContext } from "./ContextAPI/SignUpContext";
+
 
 function ArchIntelWebsite() {
+  const [user, setUser] = useState("");
+  const [isSignUp, setIsSignUp] = useState(false);
+
+  // onAuthStateChanged(auth, (currentUser) => {
+  //   setUser(currentUser);
+  // });
+
   useEffect(() => {
     const handleScroll = (event) => {
       var scrolPosition = window.pageYOffset;
@@ -33,16 +42,19 @@ function ArchIntelWebsite() {
 
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<LayOut />}></Route>
-          {/* <Route path="/" element={<User />}> */}
-          <Route path="user/signin" element={<SignIn />}></Route>
-          <Route path="user/signup" element={<SignUp />}></Route>
-          {/* </Route> */}
-          <Route path="*" element={<NoPage />} />
-        </Routes>
-      </BrowserRouter>
+      {user && console.log(`User is ${user.email}`)}
+      <SignUpContext.Provider value={{ isSignUp, setIsSignUp, user, setUser }}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<LayOut />}></Route>
+            {/* <Route path="/" element={<User />}> */}
+            <Route path="user/signin" element={<SignIn />}></Route>
+            <Route path="user/signup" element={<SignUp />}></Route>
+            {/* </Route> */}
+            <Route path="*" element={<NoPage />} />
+          </Routes>
+        </BrowserRouter>
+      </SignUpContext.Provider>
     </>
   );
 }

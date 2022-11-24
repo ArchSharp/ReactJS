@@ -1,6 +1,6 @@
 import React from "react";
 import CenteredHeadingUnderline from "./CenteredHeadingUnderline";
-import Lists from "../Components/Lists";
+import Lists from "./Lists";
 
 var contactHandles = [
   <a

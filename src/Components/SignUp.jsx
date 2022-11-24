@@ -1,13 +1,29 @@
 import React, { useState } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Navigate, Outlet } from "react-router-dom";
+import {
+  createUserWithEmailAndPassword,
+  // signInWithEmailAndPassword,
+  onAuthStateChanged,
+  // signOut,
+} from "firebase/auth";
+import { auth } from "../firebase-config";
+import { useContext } from "react";
+import { SignUpContext } from "../ContextAPI/SignUpContext";
+
 
 const SignUp = () => {
+  const { setUser, isSignUp, setIsSignUp } = useContext(SignUpContext);
+
   const [person, setPerson] = useState({
     firstName: "",
     lastName: "",
     email: "",
     password: "",
     confirmPassword: "",
+  });
+
+  onAuthStateChanged(auth, (currentUser) => {
+    setUser(currentUser);
   });
   const handleChange = (e) => {
     const name = e.target.name;
@@ -19,7 +35,7 @@ const SignUp = () => {
     if (person.firstName && person.email && person.password) {
       const newPerson = { ...person, id: new Date().getTime().toString() };
       delete newPerson.confirmPassword;
-      console.log(newPerson);
+      //console.log(newPerson);
       setPerson({
         firstName: "",
         lastName: "",
@@ -27,35 +43,58 @@ const SignUp = () => {
         password: "",
         confirmPassword: "",
       });
-      const { id, firstName, lastName, email, password } = newPerson;
-      const response = await fetch(
-        "https://archintel-api-default-rtdb.firebaseio.com/signupDB.json",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            id,
-            firstName,
-            lastName,
-            email,
-            password,
-          }),
-        }
-      );
-      if (response.status === 200) {
-        console.log("Success signup");
+      //const { id, firstName, lastName, email, password } = newPerson;
+      // const response = await fetch(
+      //   "https://archintel-api-default-rtdb.firebaseio.com/signupDB.json",
+      //   {
+      //     method: "POST",
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //     },
+      //     body: JSON.stringify({
+      //       id,
+      //       firstName,
+      //       lastName,
+      //       email,
+      //       password,
+      //     }),
+      //   }
+      // );
+      // if (response.status === 200) {
+      //   console.log("Success signup");
+      // }
+      //const register = async () => {
+      try {
+        const user = await createUserWithEmailAndPassword(
+          auth,
+          newPerson.email,
+          newPerson.password
+        );
+        console.log(user);
+        setIsSignUp(true);
+        // console.log(`success ${isSignUp}`);
+      } catch (error) {
+        console.log(`There is an error: ${error.message}`);
       }
     }
   };
+
   return (
     <>
+      {/* {console.log(isSignUp)} */}
+
+      {isSignUp ? <Navigate to="/" replace={true} /> : signupForm()}
+      <Outlet />
+    </>
+  );
+
+  function signupForm() {
+    return (
       <fieldset className="form">
         <legend className="usersign">Sign Up</legend>
         <form onSubmit={handleSubmit}>
           <div className="form-control">
-            <label htmlFor="firstName">First Name : </label>
+            <label htmlFor="firstName">First Name: </label>
             <input
               type="text"
               id="firstName"
@@ -65,7 +104,7 @@ const SignUp = () => {
             />
           </div>
           <div className="form-control">
-            <label htmlFor="lastName">Last Name : </label>
+            <label htmlFor="lastName">Last Name: </label>
             <input
               type="text"
               id="lastName"
@@ -75,7 +114,7 @@ const SignUp = () => {
             />
           </div>
           <div className="form-control">
-            <label htmlFor="email">Email : </label>
+            <label htmlFor="email">Email: </label>
             <input
               type="email"
               id="email"
@@ -85,7 +124,7 @@ const SignUp = () => {
             />
           </div>
           <div className="form-control">
-            <label htmlFor="password">Password : </label>
+            <label htmlFor="password">Password: </label>
             <input
               type="password"
               id="password"
@@ -95,7 +134,7 @@ const SignUp = () => {
             />
           </div>
           <div className="form-control">
-            <label htmlFor="password">Confirm Password : </label>
+            <label htmlFor="password">Confirm Password: </label>
             <input
               type="password"
               id="confirmPassword"
@@ -104,14 +143,8 @@ const SignUp = () => {
               onChange={handleChange}
             />
           </div>
-          <div
-            style={{
-              display: "flex",
-              marginLeft: "auto",
-              width: "fit-content",
-            }}
-          >
-            <p>Already a member? </p>
+          <div className="signinLink">
+            <p>Already a member?</p>
             <Link
               style={{ marginLeft: "10px" }}
               to="/user/signin"
@@ -122,23 +155,33 @@ const SignUp = () => {
               SignIn
             </Link>
           </div>
-          <div
-            style={{
-              display: "flex",
-              marginLeft: "auto",
-              marginRight: "auto",
-              width: "fit-content",
-            }}
-          >
+          <div className="signupBTN">
             <button type="submit" className="btn">
               SignUp
             </button>
           </div>
         </form>
       </fieldset>
-      <Outlet />
-    </>
-  );
+    );
+  }
 };
 
 export default SignUp;
+
+// const logout = async () => {
+//   await signOut(auth);
+// };
+// const login = async () => {
+//   try {
+//     const user = await signInWithEmailAndPassword(
+//       auth,
+//       newPerson.email,
+//       newPerson.password
+//     );
+//     // console.log("Success");
+//     console.log(user);
+//   } catch (error) {
+//     // console.log("There is an error");
+//     console.log(error.message);
+//   }
+// };

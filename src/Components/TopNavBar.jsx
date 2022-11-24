@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
 import { Outlet, Link } from "react-router-dom";
+import { SignUpContext } from "../ContextAPI/SignUpContext";
+
+import { auth } from "../firebase-config";
+import { onAuthStateChanged } from "firebase/auth";
+
 
 function TopNavBar({ companyName, navArray }) {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
+  const { user, setUser } = useContext(SignUpContext);
+
+  
+  onAuthStateChanged(auth, (currentUser) => {
+    setUser(currentUser);
+  });
   return (
     <>
       <div className="navbar_x fixed" id="navbarId">
@@ -36,31 +47,34 @@ function TopNavBar({ companyName, navArray }) {
         <div className={isNavExpanded ? "nav_x expanded" : "nav_x"} id="navId">
           <ul>
             {" "}
-            {navArray.map((navMember, index) => {
-              const { navName, navLink } = navMember;
-              // let blank =
-              //   navName === "Sign Up" || navName === "Sign In"
-              //     ? "_blank"
-              //     : "_self";
-              // console.log(blank);
-              return (
-                <>
-                  <li key={index}>
-                    <Link
-                      to={navLink}
-                      className="links"
-                      target="_self"
-                      rel="noreferrer"
-                    >
-                      {navName}
-                    </Link>
-                  </li>
-                </>
-              );
-            })}
+            {navArray
+              .filter((nav, index) => {
+                if (user && (index === 5 || index === 6)) {
+                  return false;
+                }
+                return true;
+              })
+              .map((navMember, index) => {
+                const { navName, navLink } = navMember;
+                return (
+                  <>
+                    <li key={index}>
+                      <Link
+                        to={navLink}
+                        className="links"
+                        target="_self"
+                        rel="noreferrer"
+                      >
+                        {navName}
+                      </Link>
+                    </li>
+                  </>
+                );
+              })}
           </ul>
         </div>
       </div>
+
       <Outlet />
     </>
   );

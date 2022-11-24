@@ -234,7 +234,9 @@ a {
   color: green;
 }
 .fa-code,
-.fa-empire,.fa-graduation-cap,.fa-signal {
+.fa-empire,
+.fa-graduation-cap,
+.fa-signal {
   animation: strategy-zoom-in-zoom-out 2s ease-out infinite;
 }
 .fa-user-plus {
@@ -340,6 +342,17 @@ form .form-control input {
   color: #072a6c;
   font-weight: bolder;
   background-color: #fff;
+}
+.signupBTN {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+}
+.signinLink {
+  display: flex;
+  margin-left: auto;
+  width: fit-content;
 }
 .form {
   background: lightblue;
