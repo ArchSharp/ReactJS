@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, Navigate, Outlet } from "react-router-dom";
+
 import {
   createUserWithEmailAndPassword,
   // signInWithEmailAndPassword,
@@ -12,7 +13,8 @@ import { SignUpContext } from "../ContextAPI/SignUpContext";
 
 
 const SignUp = () => {
-  const { setUser, isSignUp, setIsSignUp } = useContext(SignUpContext);
+  const { setUser, isSignUp, setIsSignUp, setCookie } = useContext(SignUpContext);
+  
 
   const [person, setPerson] = useState({
     firstName: "",
@@ -73,6 +75,8 @@ const SignUp = () => {
         console.log(user);
         setIsSignUp(true);
         // console.log(`success ${isSignUp}`);
+        setCookie("Name", newPerson.email, { path: "/" });
+        setCookie("Password", newPerson.password, { path: "/" });
       } catch (error) {
         console.log(`There is an error: ${error.message}`);
       }

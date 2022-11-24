@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import ReactDom from "react-dom";
 import { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { CookiesProvider } from "react-cookie";
+import { useCookies } from "react-cookie";
 // import "./index.css";
 import "./archintel.css";
 import "./archintel.scss";
@@ -12,14 +14,10 @@ import SignUp from "./Components/SignUp";
 import SignIn from "./Components/SignIn";
 import { SignUpContext } from "./ContextAPI/SignUpContext";
 
-
 function ArchIntelWebsite() {
   const [user, setUser] = useState("");
   const [isSignUp, setIsSignUp] = useState(false);
-
-  // onAuthStateChanged(auth, (currentUser) => {
-  //   setUser(currentUser);
-  // });
+  const [cookies, setCookie] = useCookies(["cookieUser"]);
 
   useEffect(() => {
     const handleScroll = (event) => {
@@ -43,18 +41,22 @@ function ArchIntelWebsite() {
   return (
     <>
       {user && console.log(`User is ${user.email}`)}
-      <SignUpContext.Provider value={{ isSignUp, setIsSignUp, user, setUser }}>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<LayOut />}></Route>
-            {/* <Route path="/" element={<User />}> */}
-            <Route path="user/signin" element={<SignIn />}></Route>
-            <Route path="user/signup" element={<SignUp />}></Route>
-            {/* </Route> */}
-            <Route path="*" element={<NoPage />} />
-          </Routes>
-        </BrowserRouter>
-      </SignUpContext.Provider>
+      <CookiesProvider>
+        <SignUpContext.Provider
+          value={{ isSignUp, setIsSignUp, user, setUser, cookies, setCookie }}
+        >
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<LayOut />}></Route>
+              {/* <Route path="/" element={<User />}> */}
+              <Route path="user/signin" element={<SignIn />}></Route>
+              <Route path="user/signup" element={<SignUp />}></Route>
+              {/* </Route> */}
+              <Route path="*" element={<NoPage />} />
+            </Routes>
+          </BrowserRouter>
+        </SignUpContext.Provider>
+      </CookiesProvider>
     </>
   );
 }

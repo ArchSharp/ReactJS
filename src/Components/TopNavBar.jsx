@@ -3,18 +3,10 @@ import { useState } from "react";
 import { Outlet, Link } from "react-router-dom";
 import { SignUpContext } from "../ContextAPI/SignUpContext";
 
-import { auth } from "../firebase-config";
-import { onAuthStateChanged } from "firebase/auth";
-
-
 function TopNavBar({ companyName, navArray }) {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
-  const { user, setUser } = useContext(SignUpContext);
+  const { cookies } = useContext(SignUpContext);
 
-  
-  onAuthStateChanged(auth, (currentUser) => {
-    setUser(currentUser);
-  });
   return (
     <>
       <div className="navbar_x fixed" id="navbarId">
@@ -49,7 +41,7 @@ function TopNavBar({ companyName, navArray }) {
             {" "}
             {navArray
               .filter((nav, index) => {
-                if (user && (index === 5 || index === 6)) {
+                if (cookies.Name && (index === 5 || index === 6)) {
                   return false;
                 }
                 return true;
