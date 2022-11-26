@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, Navigate, Outlet } from "react-router-dom";
 
 import {
@@ -9,24 +9,79 @@ import {
 } from "firebase/auth";
 import { auth } from "../firebase-config";
 import { useContext } from "react";
-import { SignUpContext } from "../ContextAPI/SignUpContext";
 
+import { database } from "../firebase-config";
+import {
+  collection,
+  getDocs,
+  addDoc,
+  updateDoc,
+  deleteDoc,
+  doc,
+} from "firebase/firestore";
+
+import { SignUpContext } from "../ContextAPI/SignUpContext";
+import { persondata } from "../Datas/signupData";
 
 const SignUp = () => {
-  const { setUser, isSignUp, setIsSignUp, setCookie } = useContext(SignUpContext);
+  const { setUser, isSignUp, setIsSignUp, setCookie } =
+    useContext(SignUpContext);
+  const [person, setPerson] = useState({});
+  const [dbUser, setDbUser] = useState([]);
+  const usersCollectionRef = collection(database, "users");
+
+  //Firebase Authentication
+  const register = async ({ ...userEmailnPassword }) => {
+    var user = "null";
+    try {
+      user = await createUserWithEmailAndPassword(
+        auth,
+        userEmailnPassword.email,
+        userEmailnPassword.password
+      );
+      setIsSignUp(true);
+      setCookie("Name", userEmailnPassword.email, { path: "/" });
+      setCookie("Password", userEmailnPassword.password, { path: "/" });
+    } catch (error) {
+      console.log(`There is an error: ${error.message}`);
+    }
+    return user;
+  };
   
-
-  const [person, setPerson] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-  });
-
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
   });
+  // end Firebase authentication
+
+  //CRUD - create, read, update, delete
+  //create
+  const createUser = async (personData) => {
+    try {
+      await addDoc(usersCollectionRef, { ...personData });
+    } catch (error) {
+      console.error("writeToDB failed. reason :", error.message);
+    }
+  };
+  //read
+  useEffect(() => {
+    const getUsers = async () => {
+      const data = await getDocs(usersCollectionRef);
+      setDbUser(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    };
+    getUsers();
+  }, [usersCollectionRef]);
+  //update
+  const updateUser = async (id, age) => {
+    const userDoc = doc(database, "users", id);
+    const newFields = { age: age + 1 }; // field to be changed
+    await updateDoc(userDoc, newFields);
+  };
+  //delete
+  const deleteUser = async (id) => {
+    const userDoc = doc(database, "users", id);
+    await deleteDoc(userDoc);
+  };
+
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -37,56 +92,15 @@ const SignUp = () => {
     if (person.firstName && person.email && person.password) {
       const newPerson = { ...person, id: new Date().getTime().toString() };
       delete newPerson.confirmPassword;
-      //console.log(newPerson);
-      setPerson({
-        firstName: "",
-        lastName: "",
-        email: "",
-        password: "",
-        confirmPassword: "",
-      });
-      //const { id, firstName, lastName, email, password } = newPerson;
-      // const response = await fetch(
-      //   "https://archintel-api-default-rtdb.firebaseio.com/signupDB.json",
-      //   {
-      //     method: "POST",
-      //     headers: {
-      //       "Content-Type": "application/json",
-      //     },
-      //     body: JSON.stringify({
-      //       id,
-      //       firstName,
-      //       lastName,
-      //       email,
-      //       password,
-      //     }),
-      //   }
-      // );
-      // if (response.status === 200) {
-      //   console.log("Success signup");
-      // }
-      //const register = async () => {
-      try {
-        const user = await createUserWithEmailAndPassword(
-          auth,
-          newPerson.email,
-          newPerson.password
-        );
-        console.log(user);
-        setIsSignUp(true);
-        // console.log(`success ${isSignUp}`);
-        setCookie("Name", newPerson.email, { path: "/" });
-        setCookie("Password", newPerson.password, { path: "/" });
-      } catch (error) {
-        console.log(`There is an error: ${error.message}`);
-      }
+      delete newPerson.id;
+      //createUser(newPerson);
+      register(newPerson);
+      setPerson({ persondata });
     }
   };
 
   return (
     <>
-      {/* {console.log(isSignUp)} */}
-
       {isSignUp ? <Navigate to="/" replace={true} /> : signupForm()}
       <Outlet />
     </>
