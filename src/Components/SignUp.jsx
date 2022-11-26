@@ -35,6 +35,7 @@ const SignUp = () => {
     setPerson,
     setDbUser,
   } = useContext(SignUpContext);
+  var check = false;
 
   const usersCollectionRef = collection(database, "users");
 
@@ -109,11 +110,12 @@ const SignUp = () => {
       setPerson({ persondata });
     }
   };
-createUser();
-updateUser();
-deleteUser();
+  if (check === true) {
+    createUser();
+    updateUser();
+    deleteUser();
+  }
   return (
-    
     <>
       <TopNavBar
         companyName={companyDetails}
