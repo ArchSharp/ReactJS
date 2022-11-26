@@ -1,5 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, Outlet } from "react-router-dom";
+
+import TopNavBar from "./TopNavBar";
+import { navMembers, companyDetails } from "../Datas/NavMembers";
 
 const SignIn = () => {
   const [person, setPerson] = useState({
@@ -22,8 +25,18 @@ const SignIn = () => {
       });
     }
   };
+
+  useEffect(() => {
+    const navbarId = document.getElementById("navbarIdx");
+    navbarId.style.backgroundColor = "rgb(75, 125, 125)";
+  });
   return (
     <>
+      <TopNavBar
+        companyName={companyDetails}
+        navArray={navMembers}
+        isNavbarId={false}
+      />
       <fieldset className="form">
         <legend className="usersign">Sign In</legend>
         <form onSubmit={handleSubmit}>

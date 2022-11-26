@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Link, Navigate, Outlet } from "react-router-dom";
 
 import {
@@ -22,12 +22,20 @@ import {
 
 import { SignUpContext } from "../ContextAPI/SignUpContext";
 import { persondata } from "../Datas/signupData";
+import TopNavBar from "./TopNavBar";
+import { navMembers, companyDetails } from "../Datas/NavMembers";
 
 const SignUp = () => {
-  const { setUser, isSignUp, setIsSignUp, setCookie } =
-    useContext(SignUpContext);
-  const [person, setPerson] = useState({});
-  const [dbUser, setDbUser] = useState([]);
+  const {
+    setUser,
+    isSignUp,
+    setIsSignUp,
+    setCookie,
+    person,
+    setPerson,
+    setDbUser,
+  } = useContext(SignUpContext);
+
   const usersCollectionRef = collection(database, "users");
 
   //Firebase Authentication
@@ -47,7 +55,7 @@ const SignUp = () => {
     }
     return user;
   };
-  
+
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
   });
@@ -64,12 +72,15 @@ const SignUp = () => {
   };
   //read
   useEffect(() => {
+    const navbarId = document.getElementById("navbarIdx");
+    navbarId.style.backgroundColor = "rgb(75, 125, 125)";
+
     const getUsers = async () => {
       const data = await getDocs(usersCollectionRef);
       setDbUser(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
     getUsers();
-  }, [usersCollectionRef]);
+  }); //,[]
   //update
   const updateUser = async (id, age) => {
     const userDoc = doc(database, "users", id);
@@ -98,9 +109,17 @@ const SignUp = () => {
       setPerson({ persondata });
     }
   };
-
+createUser();
+updateUser();
+deleteUser();
   return (
+    
     <>
+      <TopNavBar
+        companyName={companyDetails}
+        navArray={navMembers}
+        isNavbarId={false}
+      />
       {isSignUp ? <Navigate to="/" replace={true} /> : signupForm()}
       <Outlet />
     </>

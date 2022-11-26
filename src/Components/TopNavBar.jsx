@@ -3,13 +3,13 @@ import { useState } from "react";
 import { Outlet, Link } from "react-router-dom";
 import { SignUpContext } from "../ContextAPI/SignUpContext";
 
-function TopNavBar({ companyName, navArray }) {
+function TopNavBar({ companyName, navArray, isNavbarId }) {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
   const { cookies } = useContext(SignUpContext);
-
+  var navbarId = isNavbarId === true ? "navbarId" : "navbarIdx";
   return (
     <>
-      <div className="navbar_x fixed" id="navbarId">
+      <div className="navbar_x fixed" id={navbarId}>
         <div className="companyName">
           <a href="#Home">
             <img key={1} src={companyName[1]} alt={companyName[0]} />

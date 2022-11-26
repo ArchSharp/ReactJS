@@ -1,5 +1,5 @@
 export let navMembers = [
-  { navName: "Home", navLink: "#home" },
+  { navName: "Home", navLink: "/" },
   { navName: "About Us", navLink: "#about" },
   { navName: "Services", navLink: "#services" },
   { navName: "Forex Tools", navLink: "#forextools" },

@@ -14,7 +14,11 @@ import BgImageBtwSection from "./BgImageBtwSection";
 const LayOut = () => {
   return (
     <>
-      <TopNavBars companyName={companyDetails} navArray={navMembers} />
+      <TopNavBars
+        companyName={companyDetails}
+        navArray={navMembers}
+        isNavbarId={true}
+      />
       <Home homeForex={homeForex} />
       <About />
       <BgImageBtwSection homeForex={homeForex} />

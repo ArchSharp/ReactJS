@@ -15,6 +15,8 @@ import { SignUpContext } from "./ContextAPI/SignUpContext";
 export function ArchIntelWebsite() {
   const [user, setUser] = useState("");
   const [isSignUp, setIsSignUp] = useState(false);
+  const [person, setPerson] = useState({});
+  const [dbUser, setDbUser] = useState([]);
   const [cookies, setCookie] = useCookies(["cookieUser"]);
 
   useEffect(() => {
@@ -41,7 +43,18 @@ export function ArchIntelWebsite() {
       {user && console.log(`User is ${user.email}`)}
       <CookiesProvider>
         <SignUpContext.Provider
-          value={{ isSignUp, setIsSignUp, user, setUser, cookies, setCookie }}
+          value={{
+            isSignUp,
+            setIsSignUp,
+            user,
+            setUser,
+            cookies,
+            setCookie,
+            person,
+            setPerson,
+            dbUser,
+            setDbUser,
+          }}
         >
           <BrowserRouter>
             <Routes>
