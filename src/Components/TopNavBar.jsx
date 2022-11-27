@@ -8,7 +8,7 @@ import { SignUpContext } from "../ContextAPI/SignUpContext";
 
 function TopNavBar({ companyName, navArray, isNavbarId }) {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
-  const { cookies, setCookie, setUser } = useContext(SignUpContext);
+  const { cookies, setCookie, setUser, setRefresh } = useContext(SignUpContext);
   var navbarId = isNavbarId === true ? "navbarId" : "navbarIdx";
 
   onAuthStateChanged(auth, (currentUser) => {
@@ -18,8 +18,9 @@ function TopNavBar({ companyName, navArray, isNavbarId }) {
     event.preventDefault();
     try {
       // console.log(`success log out ${index} ${navName}`);
-      setCookie("Name", "", { path: "/" });
+      setCookie("Email", "", { path: "/" });
       setCookie("Password", "", { path: "/" });
+      setRefresh(true);
       await signOut(auth);
     } catch (error) {
       console.log(`There is an error: ${error.message}`);
@@ -60,8 +61,8 @@ function TopNavBar({ companyName, navArray, isNavbarId }) {
             {navArray
               .filter((nav, index) => {
                 if (
-                  (cookies.Name && (index === 5 || index === 6)) ||
-                  (!cookies.Name && index === 8)
+                  (cookies.Email && (index === 5 || index === 6)) ||
+                  (!cookies.Email && index === 8)
                 ) {
                   return false;
                 }
@@ -78,7 +79,9 @@ function TopNavBar({ companyName, navArray, isNavbarId }) {
                         target="_self"
                         rel="noreferrer"
                         onClick={
-                          index === 6 && cookies.Name !=='' ? logout : () => {}
+                          index === 6 && cookies.Email !== ""
+                            ? logout
+                            : () => {}
                         }
                       >
                         {navName}

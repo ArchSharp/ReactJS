@@ -18,8 +18,15 @@ export function ArchIntelWebsite() {
   const [person, setPerson] = useState({});
   const [dbUser, setDbUser] = useState([]);
   const [cookies, setCookie] = useCookies(["cookieUser"]);
+  const [refresh, setRefresh] = useState(false);
 
   useEffect(() => {
+    if (refresh) {
+      window.location.reload();
+      console.log(`Resfresh ${refresh} ${window.location}`);
+      setRefresh(false);
+    }
+
     const handleScroll = (event) => {
       var scrolPosition = window.pageYOffset;
       const navbarId = document.getElementById("navbarId");
@@ -36,11 +43,11 @@ export function ArchIntelWebsite() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [refresh]);
 
   return (
     <>
-      {user && console.log(`User is ${user.email}`)}
+      {refresh && console.log(`User is ${user.email}`)}
       <CookiesProvider>
         <SignUpContext.Provider
           value={{
@@ -54,6 +61,7 @@ export function ArchIntelWebsite() {
             setPerson,
             dbUser,
             setDbUser,
+            setRefresh,
           }}
         >
           <BrowserRouter>

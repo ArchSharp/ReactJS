@@ -17,11 +17,17 @@ const SignIn = () => {
     email: "",
     password: "",
   });
-  const { setUser, isSignUp, setIsSignUp, setCookie } =
+  const { setUser, isSignUp, setIsSignUp, setCookie, setRefresh } =
     useContext(SignUpContext);
 
   const login = async ({ ...userEmailnPassword }) => {
     var user = "null";
+    console.log(
+      "Login ",
+      userEmailnPassword.email,
+      " ",
+      userEmailnPassword.password
+    );
     try {
       user = await signInWithEmailAndPassword(
         auth,
@@ -29,7 +35,8 @@ const SignIn = () => {
         userEmailnPassword.password
       );
       setIsSignUp(true);
-      setCookie("Name", userEmailnPassword.email, { path: "/" });
+      setRefresh(true);
+      setCookie("Email", userEmailnPassword.email, { path: "/" });
       setCookie("Password", userEmailnPassword.password, { path: "/" });
     } catch (error) {
       console.log(`There is an error: ${error.message}`);
@@ -51,7 +58,7 @@ const SignIn = () => {
     if (person.email && person.password) {
       const newPerson = { ...person, id: new Date().getTime().toString() };
       delete newPerson.id;
-      // console.log(newPerson);
+      console.log(newPerson);
       login(newPerson);
       setPerson({
         email: "",

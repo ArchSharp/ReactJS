@@ -21,7 +21,7 @@ import {
 } from "firebase/firestore";
 
 import { SignUpContext } from "../ContextAPI/SignUpContext";
-import { persondata } from "../Datas/signupData";
+import { persondata, formData } from "../Datas/signupData";
 import TopNavBar from "./TopNavBar";
 import { navMembers, companyDetails } from "../Datas/NavMembers";
 
@@ -34,6 +34,7 @@ const SignUp = () => {
     person,
     setPerson,
     setDbUser,
+    setRefresh,
   } = useContext(SignUpContext);
   var check = false;
 
@@ -49,7 +50,8 @@ const SignUp = () => {
         userEmailnPassword.password
       );
       setIsSignUp(true);
-      setCookie("Name", userEmailnPassword.email, { path: "/" });
+      setRefresh(true);
+      setCookie("Email", userEmailnPassword.email, { path: "/" });
       setCookie("Password", userEmailnPassword.password, { path: "/" });
     } catch (error) {
       console.log(`There is an error: ${error.message}`);
@@ -128,60 +130,32 @@ const SignUp = () => {
   );
 
   function signupForm() {
+    const formArray = [
+      person.firstName,
+      person.lastName,
+      person.email,
+      person.password,
+      person.confirmPassword,
+    ];
     return (
       <fieldset className="form">
         <legend className="usersign">Sign Up</legend>
         <form onSubmit={handleSubmit}>
-          <div className="form-control">
-            <label htmlFor="firstName">First Name: </label>
-            <input
-              type="text"
-              id="firstName"
-              name="firstName"
-              value={person.firstName}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="form-control">
-            <label htmlFor="lastName">Last Name: </label>
-            <input
-              type="text"
-              id="lastName"
-              name="lastName"
-              value={person.lastName}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="form-control">
-            <label htmlFor="email">Email: </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={person.email}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="form-control">
-            <label htmlFor="password">Password: </label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              value={person.password}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="form-control">
-            <label htmlFor="password">Confirm Password: </label>
-            <input
-              type="password"
-              id="confirmPassword"
-              name="confirmPassword"
-              value={person.confirmPassword}
-              onChange={handleChange}
-            />
-          </div>
+          {formData.map((eachFormData, index) => {
+            const { htmlFor, labelName, type, id, name } = eachFormData;
+            return (
+              <div className="form-control">
+                <label htmlFor={htmlFor}>{labelName}: </label>
+                <input
+                  type={type}
+                  id={id}
+                  name={name}
+                  value={formArray[index]}
+                  onChange={handleChange}
+                />
+              </div>
+            );
+          })}
           <div className="signinLink">
             <p>Already a member?</p>
             <Link
@@ -206,21 +180,3 @@ const SignUp = () => {
 };
 
 export default SignUp;
-
-// const logout = async () => {
-//   await signOut(auth);
-// };
-// const login = async () => {
-//   try {
-//     const user = await signInWithEmailAndPassword(
-//       auth,
-//       newPerson.email,
-//       newPerson.password
-//     );
-//     // console.log("Success");
-//     console.log(user);
-//   } catch (error) {
-//     // console.log("There is an error");
-//     console.log(error.message);
-//   }
-// };
