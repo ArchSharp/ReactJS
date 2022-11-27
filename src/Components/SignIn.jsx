@@ -1,5 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Navigate, Outlet } from "react-router-dom";
+import {
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  // signOut,
+} from "firebase/auth";
+import { auth } from "../firebase-config";
+import { SignUpContext } from "../ContextAPI/SignUpContext";
+import { useContext } from "react";
 
 import TopNavBar from "./TopNavBar";
 import { navMembers, companyDetails } from "../Datas/NavMembers";
@@ -9,6 +17,30 @@ const SignIn = () => {
     email: "",
     password: "",
   });
+  const { setUser, isSignUp, setIsSignUp, setCookie } =
+    useContext(SignUpContext);
+
+  const login = async ({ ...userEmailnPassword }) => {
+    var user = "null";
+    try {
+      user = await signInWithEmailAndPassword(
+        auth,
+        userEmailnPassword.email,
+        userEmailnPassword.password
+      );
+      setIsSignUp(true);
+      setCookie("Name", userEmailnPassword.email, { path: "/" });
+      setCookie("Password", userEmailnPassword.password, { path: "/" });
+    } catch (error) {
+      console.log(`There is an error: ${error.message}`);
+    }
+    return user;
+  };
+
+  onAuthStateChanged(auth, (currentUser) => {
+    setUser(currentUser);
+  });
+
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -18,7 +50,9 @@ const SignIn = () => {
     event.preventDefault();
     if (person.email && person.password) {
       const newPerson = { ...person, id: new Date().getTime().toString() };
-      console.log(newPerson);
+      delete newPerson.id;
+      // console.log(newPerson);
+      login(newPerson);
       setPerson({
         email: "",
         password: "",
@@ -37,11 +71,18 @@ const SignIn = () => {
         navArray={navMembers}
         isNavbarId={false}
       />
+      {isSignUp ? <Navigate to="/" replace={true} /> : signIn()}
+      <Outlet />
+    </>
+  );
+
+  function signIn() {
+    return (
       <fieldset className="form">
         <legend className="usersign">Sign In</legend>
         <form onSubmit={handleSubmit}>
           <div className="form-control">
-            <label htmlFor="email">Email : </label>
+            <label htmlFor="email">Email: </label>
             <input
               type="email"
               id="email"
@@ -51,7 +92,7 @@ const SignIn = () => {
             />
           </div>
           <div className="form-control">
-            <label htmlFor="password">Password : </label>
+            <label htmlFor="password">Password: </label>
             <input
               type="password"
               id="password"
@@ -67,7 +108,7 @@ const SignIn = () => {
               width: "fit-content",
             }}
           >
-            <p>Not a member? </p>
+            <p>Not a member?</p>
             <Link
               style={{ marginLeft: "10px" }}
               to="/user/signup"
@@ -86,15 +127,14 @@ const SignIn = () => {
               width: "fit-content",
             }}
           >
-            <button type="submit" className="btn">
+            <button type="submit" className="btn" onClick={login}>
               SignIn
             </button>
           </div>
         </form>
       </fieldset>
-      <Outlet />
-    </>
-  );
+    );
+  }
 };
 
 export default SignIn;

@@ -1,12 +1,30 @@
 import React, { useContext } from "react";
 import { useState } from "react";
 import { Outlet, Link } from "react-router-dom";
+
+import { auth } from "../firebase-config";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import { SignUpContext } from "../ContextAPI/SignUpContext";
 
 function TopNavBar({ companyName, navArray, isNavbarId }) {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
-  const { cookies } = useContext(SignUpContext);
+  const { cookies, setCookie, setUser } = useContext(SignUpContext);
   var navbarId = isNavbarId === true ? "navbarId" : "navbarIdx";
+
+  onAuthStateChanged(auth, (currentUser) => {
+    setUser(currentUser);
+  });
+  const logout = async (event) => {
+    event.preventDefault();
+    try {
+      // console.log(`success log out ${index} ${navName}`);
+      setCookie("Name", "", { path: "/" });
+      setCookie("Password", "", { path: "/" });
+      await signOut(auth);
+    } catch (error) {
+      console.log(`There is an error: ${error.message}`);
+    }
+  };
   return (
     <>
       <div className="navbar_x fixed" id={navbarId}>
@@ -41,7 +59,10 @@ function TopNavBar({ companyName, navArray, isNavbarId }) {
             {" "}
             {navArray
               .filter((nav, index) => {
-                if (cookies.Name && (index === 5 || index === 6)) {
+                if (
+                  (cookies.Name && (index === 5 || index === 6)) ||
+                  (!cookies.Name && index === 8)
+                ) {
                   return false;
                 }
                 return true;
@@ -56,6 +77,9 @@ function TopNavBar({ companyName, navArray, isNavbarId }) {
                         className="links"
                         target="_self"
                         rel="noreferrer"
+                        onClick={
+                          index === 6 && cookies.Name !=='' ? logout : () => {}
+                        }
                       >
                         {navName}
                       </Link>

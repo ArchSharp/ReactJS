@@ -10,7 +10,7 @@ const Card = ({ content, header, bottom, faIcon, faText, topMargin }) => {
       >
         {header !== "" ? <div className="cardHeader">{header}</div> : ""}
         {faIcon !== "" ? (
-          <i class={faIcon} aria-hidden="true">
+          <i className={faIcon} aria-hidden="true">
             <span> {faText}</span>
           </i>
         ) : (

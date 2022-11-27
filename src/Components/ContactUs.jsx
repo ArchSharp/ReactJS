@@ -8,14 +8,16 @@ var contactHandles = [
     target="_blank"
     rel="noreferrer"
   >
-    <i class="fa fa-facebook-square"></i>{" "}
-    <span class="hideContact">Facebook</span>
+    <i className="fa fa-facebook-square"></i>{" "}
+    <span className="hideContact">Facebook</span>
   </a>,
   <a href="https://twitter.com/ArchIntel1" target="_blank" rel="noreferrer">
-    <i class="fa fa-twitter"></i> <span class="hideContact">Twitter</span>
+    <i className="fa fa-twitter"></i>{" "}
+    <span className="hideContact">Twitter</span>
   </a>,
   <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">
-    <i class="fa fa-instagram"></i> <span class="hideContact">Instagram</span>
+    <i className="fa fa-instagram"></i>{" "}
+    <span className="hideContact">Instagram</span>
   </a>,
   <a
     href="http://www.terawork.com/home/archraphael"
@@ -28,15 +30,15 @@ var contactHandles = [
       style={{ width: "30px" }}
       className="fa-terawork"
     ></img>{" "}
-    <span class="hideContact">TeraWork</span>
+    <span className="hideContact">TeraWork</span>
   </a>,
   <a
     href="https://www.linkedin.com/in/raphael-tunji-34a1073a/"
     target="_blank"
     rel="noreferrer"
   >
-    <i class="fa fa-linkedin-square" aria-hidden="true"></i>{" "}
-    <span class="hideContact">LinkedIn</span>
+    <i className="fa fa-linkedin-square" aria-hidden="true"></i>{" "}
+    <span className="hideContact">LinkedIn</span>
   </a>,
   <a
     href="https://www.mql5.com/en/users/archraphael"
@@ -49,7 +51,7 @@ var contactHandles = [
       style={{ width: "50px", height: "20px" }}
       className="fa-mql5"
     ></img>{" "}
-    <span class="hideContact">MQL5</span>
+    <span className="hideContact">MQL5</span>
   </a>,
 ];
 
