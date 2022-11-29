@@ -24,8 +24,11 @@ import { SignUpContext } from "../ContextAPI/SignUpContext";
 import { persondata, formData } from "../Datas/signupData";
 import TopNavBar from "./TopNavBar";
 import { navMembers, companyDetails } from "../Datas/NavMembers";
+import { useState } from "react";
 
 const SignUp = () => {
+  const [showError, setShowError] = useState(false);
+  const [formError, setFormError] = useState([]);
   const {
     setUser,
     isSignUp,
@@ -78,6 +81,14 @@ const SignUp = () => {
     const navbarId = document.getElementById("navbarIdx");
     navbarId.style.backgroundColor = "rgb(75, 125, 125)";
 
+    if (showError) {
+      const timer = setTimeout(() => {
+        setShowError(false);
+        setFormError([]);
+      }, 2000);
+      return () => clearTimeout(timer);
+    }
+
     const getUsers = async () => {
       const data = await getDocs(usersCollectionRef);
       setDbUser(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
@@ -103,6 +114,17 @@ const SignUp = () => {
   };
   const handleSubmit = async (event) => {
     event.preventDefault();
+    if (person.password !== person.confirmPassword) {
+      setFormError(...formError, { error: "Password do not match!" });
+      setShowError(true);
+      //return;
+    }
+    if (person.firstName === "") {
+      setFormError(...formError, { error: "Please eneter First Name!" });
+      setShowError(true);
+      //return;
+    }
+
     if (person.firstName && person.email && person.password) {
       const newPerson = { ...person, id: new Date().getTime().toString() };
       delete newPerson.confirmPassword;
@@ -141,6 +163,11 @@ const SignUp = () => {
       <fieldset className="form">
         <legend className="usersign">Sign Up</legend>
         <form onSubmit={handleSubmit}>
+          {showError && (
+            <div className="formError">
+              <span>{formError.error}</span>
+            </div>
+          )}
           {formData.map((eachFormData, index) => {
             const { htmlFor, labelName, type, id, name } = eachFormData;
             return (

@@ -180,6 +180,15 @@ a {
   animation-duration: 1.5s;
 }
 
+.formError {
+  text-align: center;
+  font-weight: 600;
+  color: red;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border: 1px solid orangered;
+}
+
 @keyframes fade {
   from {
     opacity: 0.4;
