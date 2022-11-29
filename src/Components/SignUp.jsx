@@ -117,12 +117,12 @@ const SignUp = () => {
     if (person.password !== person.confirmPassword) {
       setFormError(...formError, { error: "Password do not match!" });
       setShowError(true);
-      //return;
+      return;
     }
     if (person.firstName === "") {
       setFormError(...formError, { error: "Please eneter First Name!" });
       setShowError(true);
-      //return;
+      return;
     }
 
     if (person.firstName && person.email && person.password) {
