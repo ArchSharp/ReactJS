@@ -365,10 +365,9 @@ form .form-control input {
   width: fit-content;
 }
 .eye {
-  margin-top: -23px;
-  position: relative;
-  left: 400px;
-  z-index: 1;
+  position: absolute;
+  right: 10px;
+  top: 4px;
   cursor: pointer;
 }
 .topForm {
@@ -397,6 +396,7 @@ form .form-control input {
   display: grid;
   grid-template-columns: 100px 1fr;
   align-items: center;
+  position: relative;
 }
 .form button {
   display: inline-block;

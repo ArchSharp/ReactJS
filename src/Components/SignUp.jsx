@@ -204,10 +204,10 @@ const SignUp = () => {
                     )}
                   </>
                 )}
-                {index===3}
+                {index === 3}
               </div>
             );
-          })}          
+          })}
           <div className="signinLink">
             <p>Already a member?</p>
             <Link
