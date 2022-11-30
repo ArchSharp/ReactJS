@@ -196,17 +196,18 @@ const SignUp = () => {
                   onChange={handleChange}
                 />
                 {index === 3 && (
-                  <span class="p-viewer">
+                  <>
                     {eyeShow ? (
                       <FiEye className="eye" onClick={handleShowPassword} />
                     ) : (
                       <FiEyeOff className="eye" onClick={handleShowPassword} />
                     )}
-                  </span>
+                  </>
                 )}
+                {index===3}
               </div>
             );
-          })}
+          })}          
           <div className="signinLink">
             <p>Already a member?</p>
             <Link

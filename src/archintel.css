@@ -365,6 +365,10 @@ form .form-control input {
   width: fit-content;
 }
 .eye {
+  margin-top: -23px;
+  position: relative;
+  left: 400px;
+  z-index: 1;
   cursor: pointer;
 }
 .topForm {
