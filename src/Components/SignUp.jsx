@@ -178,35 +178,35 @@ const SignUp = () => {
       <fieldset className="form">
         <legend className="usersign">Sign Up</legend>
         <form onSubmit={handleSubmit}>
-          {/* <div className="topForm">
-            <div> */}
-              {showError && (
-                <div className="formError">
-                  <span>{formError.error}</span>
-                </div>
-              )}
-              {formData.map((eachFormData, index) => {
-                const { htmlFor, labelName, type, id, name } = eachFormData;
-                return (
-                  <div className="form-control">
-                    <label htmlFor={htmlFor}>{labelName}: </label>
-                    <input
-                      type={type}
-                      id={id}
-                      name={name}
-                      value={formArray[index]}
-                      onChange={handleChange}
-                    />
-                  </div>
-                );
-              })}
-            {/* </div> */}
-            {eyeShow ? (
-              <FiEye className="eye" onClick={handleShowPassword} />
-            ) : (
-              <FiEyeOff className="eye" onClick={handleShowPassword} />
-            )}
-          {/* </div> */}
+          {showError && (
+            <div className="formError">
+              <span>{formError.error}</span>
+            </div>
+          )}
+          {formData.map((eachFormData, index) => {
+            const { htmlFor, labelName, type, id, name } = eachFormData;
+            return (
+              <div className="form-control">
+                <label htmlFor={htmlFor}>{labelName}: </label>
+                <input
+                  type={type}
+                  id={id}
+                  name={name}
+                  value={formArray[index]}
+                  onChange={handleChange}
+                />
+                {index === 3 && (
+                  <span class="p-viewer">
+                    {eyeShow ? (
+                      <FiEye className="eye" onClick={handleShowPassword} />
+                    ) : (
+                      <FiEyeOff className="eye" onClick={handleShowPassword} />
+                    )}
+                  </span>
+                )}
+              </div>
+            );
+          })}
           <div className="signinLink">
             <p>Already a member?</p>
             <Link

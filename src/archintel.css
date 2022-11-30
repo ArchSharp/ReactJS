@@ -364,13 +364,10 @@ form .form-control input {
   margin-left: auto;
   width: fit-content;
 }
-.eye{
-  position: relative;
-  top: -75px;
-  left: 390px;
+.eye {
   cursor: pointer;
 }
-.topForm{
+.topForm {
   display: flex;
 }
 .form {
