@@ -366,8 +366,8 @@ form .form-control input {
 }
 .eye{
   position: relative;
-  top: 125px;
-  left: -30px;
+  top: -75px;
+  left: 390px;
   cursor: pointer;
 }
 .topForm{

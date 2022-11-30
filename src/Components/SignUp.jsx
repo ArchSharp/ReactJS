@@ -178,8 +178,8 @@ const SignUp = () => {
       <fieldset className="form">
         <legend className="usersign">Sign Up</legend>
         <form onSubmit={handleSubmit}>
-          <div className="topForm">
-            <div>
+          {/* <div className="topForm">
+            <div> */}
               {showError && (
                 <div className="formError">
                   <span>{formError.error}</span>
@@ -200,13 +200,13 @@ const SignUp = () => {
                   </div>
                 );
               })}
-            </div>
+            {/* </div> */}
             {eyeShow ? (
               <FiEye className="eye" onClick={handleShowPassword} />
             ) : (
               <FiEyeOff className="eye" onClick={handleShowPassword} />
             )}
-          </div>
+          {/* </div> */}
           <div className="signinLink">
             <p>Already a member?</p>
             <Link
