@@ -27,7 +27,7 @@ const ForexTools = () => {
       imageRange > 3
         ? setImageRange(imageRange - 3)
         : setImageRange(imageRange + 3);
-    }, 3000);
+    }, 8000);
     return () => clearTimeout(timer);
   }, [imageRange]);
 

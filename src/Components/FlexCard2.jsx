@@ -1,9 +1,19 @@
 import React from "react";
+import { useState } from "react";
+import { useEffect } from "react";
 
 const FlexCard = ({ flexItemsArray, range }) => {
+  const [fadeCSS, setFadeCSS] = useState("fade");
+  useEffect(() => {
+    setFadeCSS("fade");
+    const interval = setInterval(() => {
+      setFadeCSS("");
+    }, 2000);
+    return () => clearInterval(interval);
+  }, [range]);
   return (
     <>
-      <div className="flexCard fade">
+      <div className={`flexCard ${fadeCSS}`}>
         {flexItemsArray.map((eachImg, index) => {
           const { imgUrl, OnlineImgUrl } = eachImg;
           //console.log("range ", range);
