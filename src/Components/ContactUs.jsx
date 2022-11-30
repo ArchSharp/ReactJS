@@ -1,6 +1,12 @@
 import React from "react";
 import CenteredHeadingUnderline from "./CenteredHeadingUnderline";
 import Lists from "./Lists";
+import {
+  ImFacebook2,
+  ImTwitter,
+  ImInstagram,
+  ImLinkedin,
+} from "react-icons/im";
 
 var contactHandles = [
   <a
@@ -8,15 +14,15 @@ var contactHandles = [
     target="_blank"
     rel="noreferrer"
   >
-    <i className="fa fa-facebook-square"></i>{" "}
+    <ImFacebook2 className="fa contactIcon" />{" "}
     <span className="hideContact">Facebook</span>
   </a>,
   <a href="https://twitter.com/ArchIntel1" target="_blank" rel="noreferrer">
-    <i className="fa fa-twitter"></i>{" "}
+    <ImTwitter className="fa contactIcon" />{" "}
     <span className="hideContact">Twitter</span>
   </a>,
   <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">
-    <i className="fa fa-instagram"></i>{" "}
+    <ImInstagram className="fa contactIcon" />{" "}
     <span className="hideContact">Instagram</span>
   </a>,
   <a
@@ -28,7 +34,7 @@ var contactHandles = [
       src="./terawork.png"
       alt="error"
       style={{ width: "30px" }}
-      className="fa-terawork"
+      className="contactIcon"
     ></img>{" "}
     <span className="hideContact">TeraWork</span>
   </a>,
@@ -37,7 +43,7 @@ var contactHandles = [
     target="_blank"
     rel="noreferrer"
   >
-    <i className="fa fa-linkedin-square" aria-hidden="true"></i>{" "}
+    <ImLinkedin className="fa contactIcon" />{" "}
     <span className="hideContact">LinkedIn</span>
   </a>,
   <a
@@ -49,7 +55,7 @@ var contactHandles = [
       src="./mql5.png"
       alt="error"
       style={{ width: "50px", height: "20px" }}
-      className="fa-mql5"
+      className="contactIcon"
     ></img>{" "}
     <span className="hideContact">MQL5</span>
   </a>,

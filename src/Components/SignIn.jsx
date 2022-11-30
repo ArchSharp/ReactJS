@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, Navigate, Outlet } from "react-router-dom";
+import { FiEyeOff, FiEye } from "react-icons/fi";
 import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
@@ -17,6 +18,7 @@ const SignIn = () => {
     email: "",
     password: "",
   });
+  const [eyeShow, setEyeShow] = useState(false);
   const { setUser, isSignUp, setIsSignUp, setCookie, setRefresh } =
     useContext(SignUpContext);
 
@@ -47,6 +49,12 @@ const SignIn = () => {
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
   });
+
+  //show and hide password
+  let passwordType = eyeShow ? "text" : "password";
+  const handleShowPassword = () => {
+    setEyeShow(!eyeShow);
+  };
 
   const handleChange = (e) => {
     const name = e.target.name;
@@ -101,12 +109,17 @@ const SignIn = () => {
           <div className="form-control">
             <label htmlFor="password">Password: </label>
             <input
-              type="password"
+              type={passwordType}
               id="password"
               name="password"
               value={person.password}
               onChange={handleChange}
             />
+            {eyeShow ? (
+              <FiEye className="eye" onClick={handleShowPassword} />
+            ) : (
+              <FiEyeOff className="eye" onClick={handleShowPassword} />
+            )}
           </div>
           <div
             style={{

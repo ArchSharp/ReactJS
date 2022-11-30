@@ -259,12 +259,7 @@ a {
 .fa-terawork {
   border-radius: 5px;
 }
-.fa-facebook-square:hover,
-.fa-twitter:hover,
-.fa-instagram:hover,
-.fa-terawork:hover,
-.fa-linkedin-square:hover,
-.fa-mql5:hover {
+.contactIcon:hover {
   color: #283b8b;
   animation: zoom-in-zoom-out 2s ease-out infinite;
 }
