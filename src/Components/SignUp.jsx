@@ -14,7 +14,7 @@ import { useContext } from "react";
 import { database } from "../firebase-config";
 import {
   collection,
-  getDocs,
+  // getDocs,
   addDoc,
   updateDoc,
   deleteDoc,
@@ -91,12 +91,15 @@ const SignUp = () => {
       return () => clearTimeout(timer);
     }
 
-    const getUsers = async () => {
-      const data = await getDocs(usersCollectionRef);
-      setDbUser(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-    };
-    getUsers();
-  }); //,[]
+    setDbUser(""); // remember to delete this
+
+    // const getUsers = async () => {
+    //   const data = await getDocs(usersCollectionRef);
+    //   setDbUser(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    // };
+    // getUsers();
+  }); //[]
+
   //update
   const updateUser = async (id, age) => {
     const userDoc = doc(database, "users", id);
