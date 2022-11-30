@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Link, Navigate, Outlet } from "react-router-dom";
+import { FiEyeOff, FiEye } from "react-icons/fi";
 
 import {
   createUserWithEmailAndPassword,
@@ -29,6 +30,7 @@ import { useState } from "react";
 const SignUp = () => {
   const [showError, setShowError] = useState(false);
   const [formError, setFormError] = useState([]);
+  const [eyeShow, setEyeShow] = useState(false);
   const {
     setUser,
     isSignUp,
@@ -106,6 +108,19 @@ const SignUp = () => {
     const userDoc = doc(database, "users", id);
     await deleteDoc(userDoc);
   };
+  function changeDesc(value, desc) {
+    for (var i in formData) {
+      if (formData[i].htmlFor === value) {
+        formData[i].type = desc;
+        break; //Stop this loop, we found it!
+      }
+    }
+  }
+  eyeShow ? changeDesc("password", "text") : changeDesc("password", "password");
+
+  const handleShowPassword = () => {
+    setEyeShow(!eyeShow);
+  };
 
   const handleChange = (e) => {
     const name = e.target.name;
@@ -163,26 +178,35 @@ const SignUp = () => {
       <fieldset className="form">
         <legend className="usersign">Sign Up</legend>
         <form onSubmit={handleSubmit}>
-          {showError && (
-            <div className="formError">
-              <span>{formError.error}</span>
+          <div className="topForm">
+            <div>
+              {showError && (
+                <div className="formError">
+                  <span>{formError.error}</span>
+                </div>
+              )}
+              {formData.map((eachFormData, index) => {
+                const { htmlFor, labelName, type, id, name } = eachFormData;
+                return (
+                  <div className="form-control">
+                    <label htmlFor={htmlFor}>{labelName}: </label>
+                    <input
+                      type={type}
+                      id={id}
+                      name={name}
+                      value={formArray[index]}
+                      onChange={handleChange}
+                    />
+                  </div>
+                );
+              })}
             </div>
-          )}
-          {formData.map((eachFormData, index) => {
-            const { htmlFor, labelName, type, id, name } = eachFormData;
-            return (
-              <div className="form-control">
-                <label htmlFor={htmlFor}>{labelName}: </label>
-                <input
-                  type={type}
-                  id={id}
-                  name={name}
-                  value={formArray[index]}
-                  onChange={handleChange}
-                />
-              </div>
-            );
-          })}
+            {eyeShow ? (
+              <FiEye className="eye" onClick={handleShowPassword} />
+            ) : (
+              <FiEyeOff className="eye" onClick={handleShowPassword} />
+            )}
+          </div>
           <div className="signinLink">
             <p>Already a member?</p>
             <Link
