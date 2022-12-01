@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React from "react";
 
 import { navMembers, companyDetails } from "../Datas/NavMembers";
 import { homeForex } from "../Datas/homeData";
@@ -11,28 +11,7 @@ import Strategies from "./Strategies";
 import ContactUs from "./ContactUs";
 import BgImageBtwSection from "./BgImageBtwSection";
 
-import { SignUpContext } from "../ContextAPI/SignUpContext";
-
-const getLocalStorage = (name) => {
-  let list = localStorage.getItem(name);
-  if (list) {
-    list = JSON.parse(list);
-    // console.log("success");
-    return list;
-  } else {
-    console.log("error");
-    return [];
-  }
-};
-
-const LayOut = () => {
-  const { cookies } = useContext(SignUpContext);
-  const [storage, setStorage] = useState(getLocalStorage(cookies.Email));
-
-  useEffect(() => {
-    setStorage(getLocalStorage(cookies.Email));
-  }, [cookies.Email]); //[cookies.Email]
-
+const LayOut = () => {  
   return (
     <>
       <TopNavBars
@@ -46,10 +25,7 @@ const LayOut = () => {
       <Services />
       <ForexTools />
       <Strategies />
-      <ContactUs />
-      <div>
-        {cookies.Email ? <h4>{storage.firstName}</h4> : <h4>Person</h4>}
-      </div>
+      <ContactUs />      
     </>
   );
 };
