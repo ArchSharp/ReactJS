@@ -8,10 +8,9 @@ export let navMembers = [
   { navName: "Sign In", navLink: "/user/signin" },
   { navName: "Contact Us", navLink: "#contactus" },
   {
-    navName: "Log Out",
+    navName: "User",
     navLink: "/",
     submenu: [
-      { navName: "User", navLink: "/" },
       { navName: "Profile", navLink: "/" },
       { navName: "Log Out", navLink: "/" },
     ],

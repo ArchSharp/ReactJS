@@ -13,7 +13,7 @@ body {
   overflow-x: hidden;
 }
 /*TopNavigationBar*/
-.nav_x ul {
+.nav_x > ul {
   display: flex;
   text-align: center;
   width: fit-content;
@@ -61,11 +61,17 @@ a {
   text-decoration: none;
   color: white;
 }
-.navbar_x li a:hover {
-  padding: 10px 10px 40px 10px;
-  background-color: red;
+.navbar_x .mainUL > li > a:hover {
+  padding: 10px 10px 0px 10px;
+  /* background-color: red; */
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+}
+.childUL {
+  margin-top: 0px;
+}
+.childUL li {
+  list-style: none;
 }
 .fixed {
   position: fixed;

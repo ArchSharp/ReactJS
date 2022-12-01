@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useState ,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Outlet, Link } from "react-router-dom";
 
 import { auth } from "../firebase-config";
@@ -20,13 +20,12 @@ const getLocalStorage = (name) => {
 
 function TopNavBar({ companyName, navArray, isNavbarId }) {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
-  const { cookies, setCookie, setUser, setRefresh } =
-    useContext(SignUpContext);
+  const { cookies, setCookie, setUser, setRefresh } = useContext(SignUpContext);
   const [storage, setStorage] = useState(getLocalStorage(cookies.Email));
-  
-    var navbarId = isNavbarId === true ? "navbarId" : "navbarIdx";
 
-  useEffect(() => {    
+  var navbarId = isNavbarId === true ? "navbarId" : "navbarIdx";
+
+  useEffect(() => {
     setStorage(getLocalStorage(cookies.Email));
   }, [cookies.Email]);
 
@@ -75,7 +74,7 @@ function TopNavBar({ companyName, navArray, isNavbarId }) {
           </svg>
         </button>
         <div className={isNavExpanded ? "nav_x expanded" : "nav_x"} id="navId">
-          <ul>
+          <ul className="mainUL">
             {" "}
             {navArray
               .filter((nav, index) => {
@@ -92,38 +91,40 @@ function TopNavBar({ companyName, navArray, isNavbarId }) {
                 return (
                   <>
                     <li key={index}>
-                      {submenu ? (
-                        <>
+                      <Link
+                        to={navLink}
+                        className="links"
+                        target="_self"
+                        rel="noreferrer"
+                        onClick={
+                          index === 6 && cookies.Email !== ""
+                            ? logout
+                            : () => {}
+                        }
+                      >
+                        {index === 6 && cookies.Email !== ""
+                          ? storage.firstName
+                          : navName}
+                      </Link>
+                      {submenu && (
+                        <ul className="childUL">
                           {submenu.map((menu, index) => {
                             const { navName, navLink } = menu;
                             return (
-                              <Link
-                                className="links"
-                                to={navLink}
-                                target="_self"
-                                rel="noreferrer"
-                                onClick={index === 2 ? logout : () => {}}
-                              >
-                                {/* {console.log({submenu})} */}
-                                {index === 0 ? storage.firstName : navName}
-                              </Link>
+                              <li key={index}>
+                                <Link
+                                  className="links"
+                                  to={navLink}
+                                  target="_self"
+                                  rel="noreferrer"
+                                  onClick={index === 1 ? logout : () => {}}
+                                >
+                                  {navName}
+                                </Link>
+                              </li>
                             );
                           })}
-                        </>
-                      ) : (
-                        <Link
-                          to={navLink}
-                          className="links"
-                          target="_self"
-                          rel="noreferrer"
-                          onClick={
-                            index === 6 && cookies.Email !== ""
-                              ? logout
-                              : () => {}
-                          }
-                        >
-                          {navName}
-                        </Link>
+                        </ul>
                       )}
                     </li>
                   </>
