@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useState } from "react";
+import { useState ,useEffect } from "react";
 import { Outlet, Link } from "react-router-dom";
 
 import { auth } from "../firebase-config";
@@ -8,8 +8,26 @@ import { SignUpContext } from "../ContextAPI/SignUpContext";
 
 function TopNavBar({ companyName, navArray, isNavbarId }) {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
-  const { cookies, setCookie, setUser, setRefresh } = useContext(SignUpContext);
+
+  const { storage, setStorage, cookies, setCookie, setUser, setRefresh } =
+    useContext(SignUpContext);
   var navbarId = isNavbarId === true ? "navbarId" : "navbarIdx";
+
+  useEffect(() => {
+    const getLocalStorage = (name) => {
+      let list = localStorage.getItem(name);
+      if (list) {
+        list = JSON.parse(list);
+        setStorage(list);
+        // console.log("success");
+        return list;
+      } else {
+        console.log("error");
+        return [];
+      }
+    };
+    getLocalStorage(cookies.Email);
+  }); // cookies.Email, setStorage, storage
 
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
@@ -69,23 +87,43 @@ function TopNavBar({ companyName, navArray, isNavbarId }) {
                 return true;
               })
               .map((navMember, index) => {
-                const { navName, navLink } = navMember;
+                const { navName, navLink, submenu } = navMember;
                 return (
                   <>
                     <li key={index}>
-                      <Link
-                        to={navLink}
-                        className="links"
-                        target="_self"
-                        rel="noreferrer"
-                        onClick={
-                          index === 6 && cookies.Email !== ""
-                            ? logout
-                            : () => {}
-                        }
-                      >
-                        {navName}
-                      </Link>
+                      {submenu ? (
+                        <>
+                          {submenu.map((menu, index) => {
+                            const { navName, navLink } = menu;
+                            return (
+                              <Link
+                                className="links"
+                                to={navLink}
+                                target="_self"
+                                rel="noreferrer"
+                                onClick={index === 2 ? logout : () => {}}
+                              >
+                                {/* {console.log({submenu})} */}
+                                {index === 0 ? storage.firstName : navName}
+                              </Link>
+                            );
+                          })}
+                        </>
+                      ) : (
+                        <Link
+                          to={navLink}
+                          className="links"
+                          target="_self"
+                          rel="noreferrer"
+                          onClick={
+                            index === 6 && cookies.Email !== ""
+                              ? logout
+                              : () => {}
+                          }
+                        >
+                          {navName}
+                        </Link>
+                      )}
                     </li>
                   </>
                 );

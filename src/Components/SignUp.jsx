@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import { Link, Navigate, Outlet } from "react-router-dom";
 import { FiEyeOff, FiEye } from "react-icons/fi";
 
@@ -9,7 +9,6 @@ import {
   // signOut,
 } from "firebase/auth";
 import { auth } from "../firebase-config";
-import { useContext } from "react";
 
 import { database } from "../firebase-config";
 import {
@@ -26,6 +25,8 @@ import { persondata, formData } from "../Datas/signupData";
 import TopNavBar from "./TopNavBar";
 import { navMembers, companyDetails } from "../Datas/NavMembers";
 import { useState } from "react";
+
+
 
 const SignUp = () => {
   const [showError, setShowError] = useState(false);
@@ -147,6 +148,8 @@ const SignUp = () => {
       const newPerson = { ...person, id: new Date().getTime().toString() };
       delete newPerson.confirmPassword;
       delete newPerson.id;
+      // browser local storage
+      localStorage.setItem(newPerson.email, JSON.stringify(newPerson));
       //createUser(newPerson);
       register(newPerson);
       setPerson({ persondata });

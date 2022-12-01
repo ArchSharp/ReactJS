@@ -19,6 +19,7 @@ export function ArchIntelWebsite() {
   const [dbUser, setDbUser] = useState([]);
   const [cookies, setCookie] = useCookies(["cookieUser"]);
   const [refresh, setRefresh] = useState(false);
+  const [storage, setStorage] = useState("");
 
   useEffect(() => {
     if (refresh) {
@@ -62,6 +63,8 @@ export function ArchIntelWebsite() {
             dbUser,
             setDbUser,
             setRefresh,
+            storage,
+            setStorage,
           }}
         >
           <BrowserRouter>
