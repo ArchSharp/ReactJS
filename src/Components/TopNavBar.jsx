@@ -8,8 +8,9 @@ import { SignUpContext } from "../ContextAPI/SignUpContext";
 
 function TopNavBar({ companyName, navArray, isNavbarId }) {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
+  const [storage, setStorage] = useState("");
 
-  const { storage, setStorage, cookies, setCookie, setUser, setRefresh } =
+  const { cookies, setCookie, setUser, setRefresh } =
     useContext(SignUpContext);
   var navbarId = isNavbarId === true ? "navbarId" : "navbarIdx";
 
@@ -27,7 +28,7 @@ function TopNavBar({ companyName, navArray, isNavbarId }) {
       }
     };
     getLocalStorage(cookies.Email);
-  }); // cookies.Email, setStorage, storage
+  }, [cookies.Email]); // cookies.Email, setStorage, storage
 
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);

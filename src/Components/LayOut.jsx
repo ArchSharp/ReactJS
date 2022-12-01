@@ -1,4 +1,4 @@
-import React, { useContext ,useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import { navMembers, companyDetails } from "../Datas/NavMembers";
 import { homeForex } from "../Datas/homeData";
@@ -14,7 +14,8 @@ import BgImageBtwSection from "./BgImageBtwSection";
 import { SignUpContext } from "../ContextAPI/SignUpContext";
 
 const LayOut = () => {
-  const { storage, setStorage, cookies } = useContext(SignUpContext);
+  const [storage, setStorage] = useState("");
+  const { cookies } = useContext(SignUpContext);
 
   useEffect(() => {
     const getLocalStorage = (name) => {
@@ -30,8 +31,8 @@ const LayOut = () => {
       }
     };
     getLocalStorage(cookies.Email);
-  }); //[cookies.Email]
-  
+  }, [cookies.Email]); //[cookies.Email]
+
   return (
     <>
       <TopNavBars
