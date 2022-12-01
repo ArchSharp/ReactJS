@@ -13,24 +13,24 @@ import BgImageBtwSection from "./BgImageBtwSection";
 
 import { SignUpContext } from "../ContextAPI/SignUpContext";
 
+const getLocalStorage = (name) => {
+  let list = localStorage.getItem(name);
+  if (list) {
+    list = JSON.parse(list);
+    // console.log("success");
+    return list;
+  } else {
+    console.log("error");
+    return [];
+  }
+};
+
 const LayOut = () => {
-  const [storage, setStorage] = useState("");
   const { cookies } = useContext(SignUpContext);
+  const [storage, setStorage] = useState(getLocalStorage(cookies.Email));
 
   useEffect(() => {
-    const getLocalStorage = (name) => {
-      let list = localStorage.getItem(name);
-      if (list) {
-        list = JSON.parse(list);
-        setStorage(list);
-        // console.log("success");
-        return list;
-      } else {
-        console.log("error");
-        return [];
-      }
-    };
-    getLocalStorage(cookies.Email);
+    setStorage(getLocalStorage(cookies.Email));
   }, [cookies.Email]); //[cookies.Email]
 
   return (

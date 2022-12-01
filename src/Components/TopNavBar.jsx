@@ -6,29 +6,29 @@ import { auth } from "../firebase-config";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { SignUpContext } from "../ContextAPI/SignUpContext";
 
+const getLocalStorage = (name) => {
+  let list = localStorage.getItem(name);
+  if (list) {
+    list = JSON.parse(list);
+    // console.log("success");
+    return list;
+  } else {
+    console.log("error");
+    return [];
+  }
+};
+
 function TopNavBar({ companyName, navArray, isNavbarId }) {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
-  const [storage, setStorage] = useState("");
-
   const { cookies, setCookie, setUser, setRefresh } =
     useContext(SignUpContext);
-  var navbarId = isNavbarId === true ? "navbarId" : "navbarIdx";
+  const [storage, setStorage] = useState(getLocalStorage(cookies.Email));
+  
+    var navbarId = isNavbarId === true ? "navbarId" : "navbarIdx";
 
-  useEffect(() => {
-    const getLocalStorage = (name) => {
-      let list = localStorage.getItem(name);
-      if (list) {
-        list = JSON.parse(list);
-        setStorage(list);
-        // console.log("success");
-        return list;
-      } else {
-        console.log("error");
-        return [];
-      }
-    };
-    getLocalStorage(cookies.Email);
-  }, [cookies.Email]); // cookies.Email, setStorage, storage
+  useEffect(() => {    
+    setStorage(getLocalStorage(cookies.Email));
+  }, [cookies.Email]);
 
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
